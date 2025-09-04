@@ -1,0 +1,98 @@
+[
+  {
+    "time": "2025-09-03T10:00:00Z",
+    "financialAcc": "20041955",
+    "statusCode": "PostOrderProcessingError",
+    "orderId": "ORD-10001",
+    "activityId": "ACT-1111",
+    "subStatusCode": "LicenseUploadFailed",
+    "status": "failed",
+    "errorPhase": "post",
+    "count": 1,
+    "reasonDescription": "Exception while uploading license file to system"
+  },
+  {
+    "time": "2025-09-03T10:05:00Z",
+    "financialAcc": "20041956",
+    "statusCode": "PostOrderProcessingError",
+    "orderId": "ORD-10002",
+    "activityId": "ACT-2222",
+    "subStatusCode": "LicenseUpdateFailed",
+    "status": "failed",
+    "errorPhase": "post",
+    "count": 1,
+    "reasonDescription": "Failed to update license due to mismatch in account data"
+  },
+  {
+    "time": "2025-09-03T10:10:00Z",
+    "financialAcc": "20041957",
+    "statusCode": "PreOrderProcessingError",
+    "orderId": "ORD-10003",
+    "activityId": "ACT-3333",
+    "subStatusCode": "CreateCartFailed",
+    "status": "failed",
+    "errorPhase": "pre",
+    "count": 1,
+    "reasonDescription": "Cart creation service returned null response"
+  },
+  {
+    "time": "2025-09-03T10:15:00Z",
+    "financialAcc": "20041958",
+    "statusCode": "PreOrderProcessingError",
+    "orderId": "ORD-10004",
+    "activityId": "ACT-4444",
+    "subStatusCode": "CreditCardFailed",
+    "status": "failed",
+    "errorPhase": "pre",
+    "count": 1,
+    "reasonDescription": "Payment declined by credit card processor"
+  },
+  {
+    "time": "2025-09-03T10:20:00Z",
+    "financialAcc": "20041959",
+    "statusCode": "PostOrderProcessingError",
+    "orderId": "ORD-10005",
+    "activityId": "ACT-5555",
+    "subStatusCode": "ESBTransformFailed",
+    "status": "failed",
+    "errorPhase": "post",
+    "count": 1,
+    "reasonDescription": "Transformation failure in ESB pipeline during order sync"
+  },
+  {
+    "time": "2025-09-03T10:25:00Z",
+    "financialAcc": "20041960",
+    "statusCode": "",
+    "orderId": "ORD-10006",
+    "activityId": "ACT-6666",
+    "subStatusCode": "",
+    "status": "created",
+    "errorPhase": "",
+    "count": 1,
+    "reasonDescription": "Order created successfully with no errors"
+  },
+  {
+    "time": "2025-09-03T10:30:00Z",
+    "financialAcc": "20041961",
+    "statusCode": "",
+    "orderId": "ORD-10007",
+    "activityId": "ACT-7777",
+    "subStatusCode": "",
+    "status": "completed",
+    "errorPhase": "",
+    "count": 1,
+    "reasonDescription": "Order processed and completed successfully"
+  },
+  {
+    "time": "2025-09-03T10:35:00Z",
+    "financialAcc": "20041962",
+    "statusCode": "",
+    "orderId": "ORD-10008",
+    "activityId": "ACT-8888",
+    "subStatusCode": "",
+    "status": "completed",
+    "errorPhase": "",
+    "count": 1,
+    "reasonDescription": "Order processed and completed successfully"
+  }
+]
