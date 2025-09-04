@@ -1,98 +1,1082 @@
-[
-  {
-    "time": "2025-09-03T10:00:00Z",
-    "financialAcc": "20041955",
-    "statusCode": "PostOrderProcessingError",
-    "orderId": "ORD-10001",
-    "activityId": "ACT-1111",
-    "subStatusCode": "LicenseUploadFailed",
-    "status": "failed",
-    "errorPhase": "post",
-    "count": 1,
-    "reasonDescription": "Exception while uploading license file to system"
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "grafana",
+          "uid": "-- Grafana --"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
   },
-  {
-    "time": "2025-09-03T10:05:00Z",
-    "financialAcc": "20041956",
-    "statusCode": "PostOrderProcessingError",
-    "orderId": "ORD-10002",
-    "activityId": "ACT-2222",
-    "subStatusCode": "LicenseUpdateFailed",
-    "status": "failed",
-    "errorPhase": "post",
-    "count": 1,
-    "reasonDescription": "Failed to update license due to mismatch in account data"
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": 16,
+  "links": [],
+  "panels": [
+    {
+      "datasource": {
+        "type": "yesoreyeram-infinity-datasource",
+        "uid": "grafanacloud-infinity"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 4,
+        "x": 0,
+        "y": 0
+      },
+      "id": 1,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "12.2.0-17245430286.patch1",
+      "targets": [
+        {
+          "columns": [],
+          "data": "[\n  {\n    \"time\": \"2025-09-03T10:00:00Z\",\n    \"financialAcc\": \"20041955\",\n    \"statusCode\": \"PostOrderProcessingError\",\n    \"orderId\": \"ORD-10001\",\n    \"activityId\": \"ACT-1111\",\n    \"subStatusCode\": \"LicenseUploadFailed\",\n    \"status\": \"failed\",\n    \"errorPhase\": \"post\",\n    \"count\": 1,\n    \"reasonDescription\": \"Exception while uploading license file to system\"\n  },\n  {\n    \"time\": \"2025-09-03T10:05:00Z\",\n    \"financialAcc\": \"20041956\",\n    \"statusCode\": \"PostOrderProcessingError\",\n    \"orderId\": \"ORD-10002\",\n    \"activityId\": \"ACT-2222\",\n    \"subStatusCode\": \"LicenseUpdateFailed\",\n    \"status\": \"failed\",\n    \"errorPhase\": \"post\",\n    \"count\": 1,\n    \"reasonDescription\": \"Failed to update license due to mismatch in account data\"\n  },\n  {\n    \"time\": \"2025-09-03T10:10:00Z\",\n    \"financialAcc\": \"20041957\",\n    \"statusCode\": \"PreOrderProcessingError\",\n    \"orderId\": \"ORD-10003\",\n    \"activityId\": \"ACT-3333\",\n    \"subStatusCode\": \"CreateCartFailed\",\n    \"status\": \"failed\",\n    \"errorPhase\": \"pre\",\n    \"count\": 1,\n    \"reasonDescription\": \"Cart creation service returned null response\"\n  },\n  {\n    \"time\": \"2025-09-03T10:15:00Z\",\n    \"financialAcc\": \"20041958\",\n    \"statusCode\": \"PreOrderProcessingError\",\n    \"orderId\": \"ORD-10004\",\n    \"activityId\": \"ACT-4444\",\n    \"subStatusCode\": \"CreditCardFailed\",\n    \"status\": \"failed\",\n    \"errorPhase\": \"pre\",\n    \"count\": 1,\n    \"reasonDescription\": \"Payment declined by credit card processor\"\n  },\n  {\n    \"time\": \"2025-09-03T10:20:00Z\",\n    \"financialAcc\": \"20041959\",\n    \"statusCode\": \"PostOrderProcessingError\",\n    \"orderId\": \"ORD-10005\",\n    \"activityId\": \"ACT-5555\",\n    \"subStatusCode\": \"ESBTransformFailed\",\n    \"status\": \"failed\",\n    \"errorPhase\": \"post\",\n    \"count\": 1,\n    \"reasonDescription\": \"Transformation failure in ESB pipeline during order sync\"\n  },\n  {\n    \"time\": \"2025-09-03T10:25:00Z\",\n    \"financialAcc\": \"20041960\",\n    \"statusCode\": \"\",\n    \"orderId\": \"ORD-10006\",\n    \"activityId\": \"ACT-6666\",\n    \"subStatusCode\": \"\",\n    \"status\": \"created\",\n    \"errorPhase\": \"\",\n    \"count\": 1,\n    \"reasonDescription\": \"Order created successfully with no errors\"\n  },\n  {\n    \"time\": \"2025-09-03T10:30:00Z\",\n    \"financialAcc\": \"20041961\",\n    \"statusCode\": \"\",\n    \"orderId\": \"ORD-10007\",\n    \"activityId\": \"ACT-7777\",\n    \"subStatusCode\": \"\",\n    \"status\": \"completed\",\n    \"errorPhase\": \"\",\n    \"count\": 1,\n    \"reasonDescription\": \"Order processed and completed successfully\"\n  },\n  {\n    \"time\": \"2025-09-03T10:35:00Z\",\n    \"financialAcc\": \"20041962\",\n    \"statusCode\": \"\",\n    \"orderId\": \"ORD-10008\",\n    \"activityId\": \"ACT-8888\",\n    \"subStatusCode\": \"\",\n    \"status\": \"completed\",\n    \"errorPhase\": \"\",\n    \"count\": 1,\n    \"reasonDescription\": \"Order processed and completed successfully\"\n  }\n]\n",
+          "datasource": {
+            "type": "yesoreyeram-infinity-datasource",
+            "uid": "grafanacloud-infinity"
+          },
+          "filters": [],
+          "format": "table",
+          "global_query_id": "",
+          "parser": "backend",
+          "refId": "A",
+          "root_selector": "",
+          "source": "inline",
+          "type": "json",
+          "url": "",
+          "url_options": {
+            "data": "",
+            "method": "GET"
+          }
+        }
+      ],
+      "title": "Total Order Created",
+      "transformations": [
+        {
+          "id": "filterByValue",
+          "options": {
+            "filters": [
+              {
+                "config": {
+                  "id": "equal",
+                  "options": {
+                    "value": "created"
+                  }
+                },
+                "fieldName": "status"
+              }
+            ],
+            "match": "any",
+            "type": "include"
+          }
+        },
+        {
+          "id": "groupBy",
+          "options": {
+            "fields": {
+              "orderId": {
+                "aggregations": [],
+                "operation": "groupby"
+              }
+            }
+          }
+        },
+        {
+          "id": "reduce",
+          "options": {
+            "reducers": [
+              "count"
+            ]
+          }
+        }
+      ],
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "yesoreyeram-infinity-datasource",
+        "uid": "grafanacloud-infinity"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 4,
+        "x": 4,
+        "y": 0
+      },
+      "id": 2,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "12.2.0-17245430286.patch1",
+      "targets": [
+        {
+          "columns": [],
+          "data": "time,financialAcc,statusCode,orderId,activityId,subStatusCode,status,errorPhase,count\n2025-09-03T10:00:00Z,20041955,PostOrderProcessingError,ORD-10001,ACT-1111,LicenseUploadFailed,failed,post,1\n2025-09-03T10:05:00Z,20041956,PostOrderProcessingError,ORD-10002,ACT-2222,LicenseUpdateFailed,failed,post,1\n2025-09-03T10:10:00Z,20041957,PreOrderProcessingError,ORD-10003,ACT-3333,CreateCartFailed,failed,pre,1\n2025-09-03T10:15:00Z,20041958,PreOrderProcessingError,ORD-10004,ACT-4444,CreditCardFailed,failed,pre,1\n2025-09-03T10:20:00Z,20041959,PostOrderProcessingError,ORD-10005,ACT-5555,ESBTransformFailed,failed,post,1\n2025-09-03T10:25:00Z,20041960,,ORD-10006,ACT-6666,,created,,1\n2025-09-03T10:30:00Z,20041961,,ORD-10007,ACT-7777,,completed,,1\n2025-09-03T10:35:00Z,20041962,,ORD-10008,ACT-8888,,completed,,1\n",
+          "datasource": {
+            "type": "yesoreyeram-infinity-datasource",
+            "uid": "grafanacloud-infinity"
+          },
+          "filters": [],
+          "format": "table",
+          "global_query_id": "",
+          "parser": "backend",
+          "refId": "A",
+          "root_selector": "",
+          "source": "inline",
+          "type": "csv",
+          "url": "",
+          "url_options": {
+            "data": "",
+            "method": "GET"
+          }
+        }
+      ],
+      "title": "Total Order Completed",
+      "transformations": [
+        {
+          "id": "filterByValue",
+          "options": {
+            "filters": [
+              {
+                "config": {
+                  "id": "equal",
+                  "options": {
+                    "value": "completed"
+                  }
+                },
+                "fieldName": "status"
+              }
+            ],
+            "match": "any",
+            "type": "include"
+          }
+        },
+        {
+          "id": "groupBy",
+          "options": {
+            "fields": {
+              "orderId": {
+                "aggregations": [],
+                "operation": "groupby"
+              }
+            }
+          }
+        },
+        {
+          "id": "reduce",
+          "options": {
+            "reducers": [
+              "count"
+            ]
+          }
+        }
+      ],
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "yesoreyeram-infinity-datasource",
+        "uid": "grafanacloud-infinity"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 4,
+        "x": 8,
+        "y": 0
+      },
+      "id": 3,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "12.2.0-17245430286.patch1",
+      "targets": [
+        {
+          "columns": [],
+          "data": "time,financialAcc,statusCode,orderId,activityId,subStatusCode,status,errorPhase,count\n2025-09-03T10:00:00Z,20041955,PostOrderProcessingError,ORD-10001,ACT-1111,LicenseUploadFailed,failed,post,1\n2025-09-03T10:05:00Z,20041956,PostOrderProcessingError,ORD-10002,ACT-2222,LicenseUpdateFailed,failed,post,1\n2025-09-03T10:10:00Z,20041957,PreOrderProcessingError,ORD-10003,ACT-3333,CreateCartFailed,failed,pre,1\n2025-09-03T10:15:00Z,20041958,PreOrderProcessingError,ORD-10004,ACT-4444,CreditCardFailed,failed,pre,1\n2025-09-03T10:20:00Z,20041959,PostOrderProcessingError,ORD-10005,ACT-5555,ESBTransformFailed,failed,post,1\n2025-09-03T10:25:00Z,20041960,,ORD-10006,ACT-6666,,created,,1\n2025-09-03T10:30:00Z,20041961,,ORD-10007,ACT-7777,,completed,,1\n2025-09-03T10:35:00Z,20041962,,ORD-10008,ACT-8888,,completed,,1\n",
+          "datasource": {
+            "type": "yesoreyeram-infinity-datasource",
+            "uid": "grafanacloud-infinity"
+          },
+          "filters": [],
+          "format": "table",
+          "global_query_id": "",
+          "parser": "backend",
+          "refId": "A",
+          "root_selector": "",
+          "source": "inline",
+          "type": "csv",
+          "url": "",
+          "url_options": {
+            "data": "",
+            "method": "GET"
+          }
+        }
+      ],
+      "title": "Total Order Failed",
+      "transformations": [
+        {
+          "id": "filterByValue",
+          "options": {
+            "filters": [
+              {
+                "config": {
+                  "id": "equal",
+                  "options": {
+                    "value": "failed"
+                  }
+                },
+                "fieldName": "status"
+              }
+            ],
+            "match": "any",
+            "type": "include"
+          }
+        },
+        {
+          "id": "groupBy",
+          "options": {
+            "fields": {
+              "orderId": {
+                "aggregations": [],
+                "operation": "groupby"
+              }
+            }
+          }
+        },
+        {
+          "id": "reduce",
+          "options": {
+            "reducers": [
+              "count"
+            ]
+          }
+        }
+      ],
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "yesoreyeram-infinity-datasource",
+        "uid": "grafanacloud-infinity"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 4,
+        "x": 12,
+        "y": 0
+      },
+      "id": 6,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "12.2.0-17245430286.patch1",
+      "targets": [
+        {
+          "columns": [],
+          "data": "time,financialAcc,statusCode,orderId,activityId,subStatusCode,status,errorPhase,count\n2025-09-03T10:00:00Z,20041955,PostOrderProcessingError,ORD-10001,ACT-1111,LicenseUploadFailed,failed,post,1\n2025-09-03T10:05:00Z,20041956,PostOrderProcessingError,ORD-10002,ACT-2222,LicenseUpdateFailed,failed,post,1\n2025-09-03T10:10:00Z,20041957,PreOrderProcessingError,ORD-10003,ACT-3333,CreateCartFailed,failed,pre,1\n2025-09-03T10:15:00Z,20041958,PreOrderProcessingError,ORD-10004,ACT-4444,CreditCardFailed,failed,pre,1\n2025-09-03T10:20:00Z,20041959,PostOrderProcessingError,ORD-10005,ACT-5555,ESBTransformFailed,failed,post,1\n2025-09-03T10:25:00Z,20041960,,ORD-10006,ACT-6666,,created,,1\n2025-09-03T10:30:00Z,20041961,,ORD-10007,ACT-7777,,completed,,1\n2025-09-03T10:35:00Z,20041962,,ORD-10008,ACT-8888,,completed,,1\n",
+          "datasource": {
+            "type": "yesoreyeram-infinity-datasource",
+            "uid": "grafanacloud-infinity"
+          },
+          "filters": [],
+          "format": "table",
+          "global_query_id": "",
+          "parser": "backend",
+          "refId": "A",
+          "root_selector": "",
+          "source": "inline",
+          "type": "csv",
+          "url": "",
+          "url_options": {
+            "data": "",
+            "method": "GET"
+          }
+        }
+      ],
+      "title": "Post Order Processing Error",
+      "transformations": [
+        {
+          "id": "filterByValue",
+          "options": {
+            "filters": [
+              {
+                "config": {
+                  "id": "equal",
+                  "options": {
+                    "value": "failed"
+                  }
+                },
+                "fieldName": "status"
+              },
+              {
+                "config": {
+                  "id": "equal",
+                  "options": {
+                    "value": "post"
+                  }
+                },
+                "fieldName": "errorPhase"
+              }
+            ],
+            "match": "all",
+            "type": "include"
+          }
+        },
+        {
+          "id": "groupBy",
+          "options": {
+            "fields": {
+              "orderId": {
+                "aggregations": [],
+                "operation": "groupby"
+              }
+            }
+          }
+        },
+        {
+          "id": "reduce",
+          "options": {
+            "reducers": [
+              "count"
+            ]
+          }
+        }
+      ],
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "yesoreyeram-infinity-datasource",
+        "uid": "grafanacloud-infinity"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 4,
+        "x": 16,
+        "y": 0
+      },
+      "id": 8,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "12.2.0-17245430286.patch1",
+      "targets": [
+        {
+          "columns": [],
+          "data": "time,financialAcc,statusCode,orderId,activityId,subStatusCode,status,errorPhase,count\n2025-09-03T10:00:00Z,20041955,PostOrderProcessingError,ORD-10001,ACT-1111,LicenseUploadFailed,failed,post,1\n2025-09-03T10:05:00Z,20041956,PostOrderProcessingError,ORD-10002,ACT-2222,LicenseUpdateFailed,failed,post,1\n2025-09-03T10:10:00Z,20041957,PreOrderProcessingError,ORD-10003,ACT-3333,CreateCartFailed,failed,pre,1\n2025-09-03T10:15:00Z,20041958,PreOrderProcessingError,ORD-10004,ACT-4444,CreditCardFailed,failed,pre,1\n2025-09-03T10:20:00Z,20041959,PostOrderProcessingError,ORD-10005,ACT-5555,ESBTransformFailed,failed,post,1\n2025-09-03T10:25:00Z,20041960,,ORD-10006,ACT-6666,,created,,1\n2025-09-03T10:30:00Z,20041961,,ORD-10007,ACT-7777,,completed,,1\n2025-09-03T10:35:00Z,20041962,,ORD-10008,ACT-8888,,completed,,1\n",
+          "datasource": {
+            "type": "yesoreyeram-infinity-datasource",
+            "uid": "grafanacloud-infinity"
+          },
+          "filters": [],
+          "format": "table",
+          "global_query_id": "",
+          "parser": "backend",
+          "refId": "A",
+          "root_selector": "",
+          "source": "inline",
+          "type": "csv",
+          "url": "",
+          "url_options": {
+            "data": "",
+            "method": "GET"
+          }
+        }
+      ],
+      "title": "Post Order Processing Error",
+      "transformations": [
+        {
+          "id": "filterByValue",
+          "options": {
+            "filters": [
+              {
+                "config": {
+                  "id": "equal",
+                  "options": {
+                    "value": "failed"
+                  }
+                },
+                "fieldName": "status"
+              },
+              {
+                "config": {
+                  "id": "equal",
+                  "options": {
+                    "value": "post"
+                  }
+                },
+                "fieldName": "errorPhase"
+              }
+            ],
+            "match": "any",
+            "type": "include"
+          }
+        },
+        {
+          "id": "groupBy",
+          "options": {
+            "fields": {
+              "orderId": {
+                "aggregations": [],
+                "operation": "groupby"
+              }
+            }
+          }
+        },
+        {
+          "id": "reduce",
+          "options": {
+            "reducers": [
+              "count"
+            ]
+          }
+        }
+      ],
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "yesoreyeram-infinity-datasource",
+        "uid": "grafanacloud-infinity"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 4,
+        "x": 20,
+        "y": 0
+      },
+      "id": 5,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "12.2.0-17245430286.patch1",
+      "targets": [
+        {
+          "columns": [],
+          "data": "time,financialAcc,statusCode,orderId,activityId,subStatusCode,status,errorPhase,count\n2025-09-03T10:00:00Z,20041955,PostOrderProcessingError,ORD-10001,ACT-1111,LicenseUploadFailed,failed,post,1\n2025-09-03T10:05:00Z,20041956,PostOrderProcessingError,ORD-10002,ACT-2222,LicenseUpdateFailed,failed,post,1\n2025-09-03T10:10:00Z,20041957,PreOrderProcessingError,ORD-10003,ACT-3333,CreateCartFailed,failed,pre,1\n2025-09-03T10:15:00Z,20041958,PreOrderProcessingError,ORD-10004,ACT-4444,CreditCardFailed,failed,pre,1\n2025-09-03T10:20:00Z,20041959,PostOrderProcessingError,ORD-10005,ACT-5555,ESBTransformFailed,failed,post,1\n2025-09-03T10:25:00Z,20041960,,ORD-10006,ACT-6666,,created,,1\n2025-09-03T10:30:00Z,20041961,,ORD-10007,ACT-7777,,completed,,1\n2025-09-03T10:35:00Z,20041962,,ORD-10008,ACT-8888,,completed,,1\n",
+          "datasource": {
+            "type": "yesoreyeram-infinity-datasource",
+            "uid": "grafanacloud-infinity"
+          },
+          "filters": [],
+          "format": "table",
+          "global_query_id": "",
+          "parser": "backend",
+          "refId": "A",
+          "root_selector": "",
+          "source": "inline",
+          "type": "csv",
+          "url": "",
+          "url_options": {
+            "data": "",
+            "method": "GET"
+          }
+        }
+      ],
+      "title": "Pre Order Processing Error",
+      "transformations": [
+        {
+          "id": "filterByValue",
+          "options": {
+            "filters": [
+              {
+                "config": {
+                  "id": "equal",
+                  "options": {
+                    "value": "failed"
+                  }
+                },
+                "fieldName": "status"
+              },
+              {
+                "config": {
+                  "id": "equal",
+                  "options": {
+                    "value": "pre"
+                  }
+                },
+                "fieldName": "errorPhase"
+              }
+            ],
+            "match": "all",
+            "type": "include"
+          }
+        },
+        {
+          "id": "groupBy",
+          "options": {
+            "fields": {
+              "orderId": {
+                "aggregations": [],
+                "operation": "groupby"
+              }
+            }
+          }
+        },
+        {
+          "id": "reduce",
+          "options": {
+            "reducers": [
+              "count"
+            ]
+          }
+        }
+      ],
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "yesoreyeram-infinity-datasource",
+        "uid": "grafanacloud-infinity"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "inspect": false,
+            "tooltip": {
+              "placement": "auto"
+            },
+            "wrapHeaderText": false
+          },
+          "links": [
+            {
+              "targetBlank": false,
+              "title": "Drilldown to Errors",
+              "url": "/d/${__dashboard.uid}/${__dashboard.name}?var-orderId=${__data.fields.orderId}&var-activityId=${__data.fields.activityId}\r\n"
+            }
+          ],
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 24,
+        "x": 0,
+        "y": 3
+      },
+      "id": 7,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true
+      },
+      "pluginVersion": "12.2.0-17245430286.patch1",
+      "targets": [
+        {
+          "columns": [],
+          "data": "[\n  {\n    \"time\": \"2025-09-03T10:00:00Z\",\n    \"financialAcc\": \"20041955\",\n    \"statusCode\": \"PostOrderProcessingError\",\n    \"orderId\": \"ORD-10001\",\n    \"activityId\": \"ACT-1111\",\n    \"subStatusCode\": \"LicenseUploadFailed\",\n    \"status\": \"failed\",\n    \"errorPhase\": \"post\",\n    \"count\": 1,\n    \"reasonDescription\": \"Exception while uploading license file to system\"\n  },\n  {\n    \"time\": \"2025-09-03T10:05:00Z\",\n    \"financialAcc\": \"20041956\",\n    \"statusCode\": \"PostOrderProcessingError\",\n    \"orderId\": \"ORD-10002\",\n    \"activityId\": \"ACT-2222\",\n    \"subStatusCode\": \"LicenseUpdateFailed\",\n    \"status\": \"failed\",\n    \"errorPhase\": \"post\",\n    \"count\": 1,\n    \"reasonDescription\": \"Failed to update license due to mismatch in account data\"\n  },\n  {\n    \"time\": \"2025-09-03T10:10:00Z\",\n    \"financialAcc\": \"20041957\",\n    \"statusCode\": \"PreOrderProcessingError\",\n    \"orderId\": \"ORD-10003\",\n    \"activityId\": \"ACT-3333\",\n    \"subStatusCode\": \"CreateCartFailed\",\n    \"status\": \"failed\",\n    \"errorPhase\": \"pre\",\n    \"count\": 1,\n    \"reasonDescription\": \"Cart creation service returned null response\"\n  },\n  {\n    \"time\": \"2025-09-03T10:15:00Z\",\n    \"financialAcc\": \"20041958\",\n    \"statusCode\": \"PreOrderProcessingError\",\n    \"orderId\": \"ORD-10004\",\n    \"activityId\": \"ACT-4444\",\n    \"subStatusCode\": \"CreditCardFailed\",\n    \"status\": \"failed\",\n    \"errorPhase\": \"pre\",\n    \"count\": 1,\n    \"reasonDescription\": \"Payment declined by credit card processor\"\n  },\n  {\n    \"time\": \"2025-09-03T10:20:00Z\",\n    \"financialAcc\": \"20041959\",\n    \"statusCode\": \"PostOrderProcessingError\",\n    \"orderId\": \"ORD-10005\",\n    \"activityId\": \"ACT-5555\",\n    \"subStatusCode\": \"ESBTransformFailed\",\n    \"status\": \"failed\",\n    \"errorPhase\": \"post\",\n    \"count\": 1,\n    \"reasonDescription\": \"Transformation failure in ESB pipeline during order sync\"\n  },\n  {\n    \"time\": \"2025-09-03T10:25:00Z\",\n    \"financialAcc\": \"20041960\",\n    \"statusCode\": \"\",\n    \"orderId\": \"ORD-10006\",\n    \"activityId\": \"ACT-6666\",\n    \"subStatusCode\": \"\",\n    \"status\": \"created\",\n    \"errorPhase\": \"\",\n    \"count\": 1,\n    \"reasonDescription\": \"Order created successfully with no errors\"\n  },\n  {\n    \"time\": \"2025-09-03T10:30:00Z\",\n    \"financialAcc\": \"20041961\",\n    \"statusCode\": \"\",\n    \"orderId\": \"ORD-10007\",\n    \"activityId\": \"ACT-7777\",\n    \"subStatusCode\": \"\",\n    \"status\": \"completed\",\n    \"errorPhase\": \"\",\n    \"count\": 1,\n    \"reasonDescription\": \"Order processed and completed successfully\"\n  },\n  {\n    \"time\": \"2025-09-03T10:35:00Z\",\n    \"financialAcc\": \"20041962\",\n    \"statusCode\": \"\",\n    \"orderId\": \"ORD-10008\",\n    \"activityId\": \"ACT-8888\",\n    \"subStatusCode\": \"\",\n    \"status\": \"completed\",\n    \"errorPhase\": \"\",\n    \"count\": 1,\n    \"reasonDescription\": \"Order processed and completed successfully\"\n  }\n]\n",
+          "datasource": {
+            "type": "yesoreyeram-infinity-datasource",
+            "uid": "grafanacloud-infinity"
+          },
+          "filters": [],
+          "format": "table",
+          "global_query_id": "",
+          "parser": "backend",
+          "refId": "A",
+          "root_selector": "",
+          "source": "inline",
+          "type": "json",
+          "url": "",
+          "url_options": {
+            "data": "",
+            "method": "GET"
+          }
+        }
+      ],
+      "title": "Finance Number Panel",
+      "transformations": [
+        {
+          "id": "filterByValue",
+          "options": {
+            "filters": [
+              {
+                "config": {
+                  "id": "equal",
+                  "options": {
+                    "value": "failed"
+                  }
+                },
+                "fieldName": "status"
+              }
+            ],
+            "match": "any",
+            "type": "include"
+          }
+        },
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "count": true,
+              "errorPhase": true,
+              "reasonDescription": true,
+              "status": true,
+              "time": true
+            },
+            "includeByName": {},
+            "indexByName": {
+              "activityId": 3,
+              "count": 5,
+              "errorPhase": 6,
+              "financialAcc": 0,
+              "orderId": 2,
+              "status": 7,
+              "statusCode": 1,
+              "subStatusCode": 4,
+              "time": 8
+            },
+            "renameByName": {
+              "activityId": "",
+              "time": ""
+            }
+          }
+        }
+      ],
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "type": "yesoreyeram-infinity-datasource",
+        "uid": "grafanacloud-infinity"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "inspect": false,
+            "tooltip": {
+              "placement": "auto"
+            },
+            "wrapHeaderText": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 24,
+        "x": 0,
+        "y": 10
+      },
+      "id": 9,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true
+      },
+      "pluginVersion": "12.2.0-17245430286.patch1",
+      "targets": [
+        {
+          "columns": [],
+          "data": "[\n  {\n    \"time\": \"2025-09-03T10:00:00Z\",\n    \"financialAcc\": \"20041955\",\n    \"statusCode\": \"PostOrderProcessingError\",\n    \"orderId\": \"ORD-10001\",\n    \"activityId\": \"ACT-1111\",\n    \"subStatusCode\": \"LicenseUploadFailed\",\n    \"status\": \"failed\",\n    \"errorPhase\": \"post\",\n    \"count\": 1,\n    \"reasonDescription\": \"Exception while uploading license file to system\"\n  },\n  {\n    \"time\": \"2025-09-03T10:05:00Z\",\n    \"financialAcc\": \"20041956\",\n    \"statusCode\": \"PostOrderProcessingError\",\n    \"orderId\": \"ORD-10002\",\n    \"activityId\": \"ACT-2222\",\n    \"subStatusCode\": \"LicenseUpdateFailed\",\n    \"status\": \"failed\",\n    \"errorPhase\": \"post\",\n    \"count\": 1,\n    \"reasonDescription\": \"Failed to update license due to mismatch in account data\"\n  },\n  {\n    \"time\": \"2025-09-03T10:10:00Z\",\n    \"financialAcc\": \"20041957\",\n    \"statusCode\": \"PreOrderProcessingError\",\n    \"orderId\": \"ORD-10003\",\n    \"activityId\": \"ACT-3333\",\n    \"subStatusCode\": \"CreateCartFailed\",\n    \"status\": \"failed\",\n    \"errorPhase\": \"pre\",\n    \"count\": 1,\n    \"reasonDescription\": \"Cart creation service returned null response\"\n  },\n  {\n    \"time\": \"2025-09-03T10:15:00Z\",\n    \"financialAcc\": \"20041958\",\n    \"statusCode\": \"PreOrderProcessingError\",\n    \"orderId\": \"ORD-10004\",\n    \"activityId\": \"ACT-4444\",\n    \"subStatusCode\": \"CreditCardFailed\",\n    \"status\": \"failed\",\n    \"errorPhase\": \"pre\",\n    \"count\": 1,\n    \"reasonDescription\": \"Payment declined by credit card processor\"\n  },\n  {\n    \"time\": \"2025-09-03T10:20:00Z\",\n    \"financialAcc\": \"20041959\",\n    \"statusCode\": \"PostOrderProcessingError\",\n    \"orderId\": \"ORD-10005\",\n    \"activityId\": \"ACT-5555\",\n    \"subStatusCode\": \"ESBTransformFailed\",\n    \"status\": \"failed\",\n    \"errorPhase\": \"post\",\n    \"count\": 1,\n    \"reasonDescription\": \"Transformation failure in ESB pipeline during order sync\"\n  },\n  {\n    \"time\": \"2025-09-03T10:25:00Z\",\n    \"financialAcc\": \"20041960\",\n    \"statusCode\": \"\",\n    \"orderId\": \"ORD-10006\",\n    \"activityId\": \"ACT-6666\",\n    \"subStatusCode\": \"\",\n    \"status\": \"created\",\n    \"errorPhase\": \"\",\n    \"count\": 1,\n    \"reasonDescription\": \"Order created successfully with no errors\"\n  },\n  {\n    \"time\": \"2025-09-03T10:30:00Z\",\n    \"financialAcc\": \"20041961\",\n    \"statusCode\": \"\",\n    \"orderId\": \"ORD-10007\",\n    \"activityId\": \"ACT-7777\",\n    \"subStatusCode\": \"\",\n    \"status\": \"completed\",\n    \"errorPhase\": \"\",\n    \"count\": 1,\n    \"reasonDescription\": \"Order processed and completed successfully\"\n  },\n  {\n    \"time\": \"2025-09-03T10:35:00Z\",\n    \"financialAcc\": \"20041962\",\n    \"statusCode\": \"\",\n    \"orderId\": \"ORD-10008\",\n    \"activityId\": \"ACT-8888\",\n    \"subStatusCode\": \"\",\n    \"status\": \"completed\",\n    \"errorPhase\": \"\",\n    \"count\": 1,\n    \"reasonDescription\": \"Order processed and completed successfully\"\n  }\n]\n",
+          "datasource": {
+            "type": "yesoreyeram-infinity-datasource",
+            "uid": "grafanacloud-infinity"
+          },
+          "filterExpression": "",
+          "filters": [],
+          "format": "table",
+          "global_query_id": "",
+          "parser": "backend",
+          "refId": "A",
+          "root_selector": "",
+          "source": "inline",
+          "type": "json",
+          "url": "",
+          "url_options": {
+            "data": "",
+            "method": "GET"
+          }
+        }
+      ],
+      "title": "Pre and Post processing Error",
+      "transformations": [
+        {
+          "id": "filterByValue",
+          "options": {
+            "filters": [
+              {
+                "config": {
+                  "id": "equal",
+                  "options": {
+                    "value": "$orderId"
+                  }
+                },
+                "fieldName": "orderId"
+              },
+              {
+                "config": {
+                  "id": "equal",
+                  "options": {
+                    "value": "$activityId"
+                  }
+                },
+                "fieldName": "activityId"
+              }
+            ],
+            "match": "any",
+            "type": "include"
+          }
+        },
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "activityId": true,
+              "count": false,
+              "errorPhase": true,
+              "statusCode": false,
+              "subStatusCode": false,
+              "time": true
+            },
+            "includeByName": {},
+            "indexByName": {
+              "activityId": 9,
+              "count": 1,
+              "errorPhase": 7,
+              "financialAcc": 2,
+              "orderId": 0,
+              "reasonDescription": 6,
+              "status": 3,
+              "statusCode": 4,
+              "subStatusCode": 5,
+              "time": 8
+            },
+            "renameByName": {}
+          }
+        }
+      ],
+      "type": "table"
+    }
+  ],
+  "preload": false,
+  "schemaVersion": 41,
+  "tags": [],
+  "templating": {
+    "list": [
+      {
+        "current": {
+          "text": "ORD-10005",
+          "value": "ORD-10005"
+        },
+        "name": "orderId",
+        "options": [
+          {
+            "selected": true,
+            "text": "ORD-10005",
+            "value": "ORD-10005"
+          }
+        ],
+        "query": "ORD-10005",
+        "type": "textbox"
+      },
+      {
+        "current": {
+          "text": "ACT-5555",
+          "value": "ACT-5555"
+        },
+        "name": "activityId",
+        "options": [
+          {
+            "selected": true,
+            "text": "ACT-5555",
+            "value": "ACT-5555"
+          }
+        ],
+        "query": "ACT-5555",
+        "type": "textbox"
+      }
+    ]
   },
-  {
-    "time": "2025-09-03T10:10:00Z",
-    "financialAcc": "20041957",
-    "statusCode": "PreOrderProcessingError",
-    "orderId": "ORD-10003",
-    "activityId": "ACT-3333",
-    "subStatusCode": "CreateCartFailed",
-    "status": "failed",
-    "errorPhase": "pre",
-    "count": 1,
-    "reasonDescription": "Cart creation service returned null response"
+  "time": {
+    "from": "now-6h",
+    "to": "now"
   },
-  {
-    "time": "2025-09-03T10:15:00Z",
-    "financialAcc": "20041958",
-    "statusCode": "PreOrderProcessingError",
-    "orderId": "ORD-10004",
-    "activityId": "ACT-4444",
-    "subStatusCode": "CreditCardFailed",
-    "status": "failed",
-    "errorPhase": "pre",
-    "count": 1,
-    "reasonDescription": "Payment declined by credit card processor"
-  },
-  {
-    "time": "2025-09-03T10:20:00Z",
-    "financialAcc": "20041959",
-    "statusCode": "PostOrderProcessingError",
-    "orderId": "ORD-10005",
-    "activityId": "ACT-5555",
-    "subStatusCode": "ESBTransformFailed",
-    "status": "failed",
-    "errorPhase": "post",
-    "count": 1,
-    "reasonDescription": "Transformation failure in ESB pipeline during order sync"
-  },
-  {
-    "time": "2025-09-03T10:25:00Z",
-    "financialAcc": "20041960",
-    "statusCode": "",
-    "orderId": "ORD-10006",
-    "activityId": "ACT-6666",
-    "subStatusCode": "",
-    "status": "created",
-    "errorPhase": "",
-    "count": 1,
-    "reasonDescription": "Order created successfully with no errors"
-  },
-  {
-    "time": "2025-09-03T10:30:00Z",
-    "financialAcc": "20041961",
-    "statusCode": "",
-    "orderId": "ORD-10007",
-    "activityId": "ACT-7777",
-    "subStatusCode": "",
-    "status": "completed",
-    "errorPhase": "",
-    "count": 1,
-    "reasonDescription": "Order processed and completed successfully"
-  },
-  {
-    "time": "2025-09-03T10:35:00Z",
-    "financialAcc": "20041962",
-    "statusCode": "",
-    "orderId": "ORD-10008",
-    "activityId": "ACT-8888",
-    "subStatusCode": "",
-    "status": "completed",
-    "errorPhase": "",
-    "count": 1,
-    "reasonDescription": "Order processed and completed successfully"
-  }
-]
+  "timepicker": {},
+  "timezone": "browser",
+  "title": "Order Processing Error Dashboard ",
+  "uid": "obw7cxg",
+  "version": 6
+}
