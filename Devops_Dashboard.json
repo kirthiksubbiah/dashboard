@@ -502,16 +502,16 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": 0
-              },
-              {
                 "color": "orange",
-                "value": 80
+                "value": 0
               },
               {
                 "color": "red",
-                "value": 0
+                "value": 80
+              },
+              {
+                "color": "green",
+                "value": 90
               }
             ]
           },
@@ -589,7 +589,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
+                "color": "red",
                 "value": 0
               },
               {
@@ -597,8 +597,8 @@
                 "value": 80
               },
               {
-                "color": "red",
-                "value": 0
+                "color": "green",
+                "value": 90
               }
             ]
           },
@@ -1356,5 +1356,5 @@
   "timezone": "browser",
   "title": "DevOps + Pipeline + Security Dashboard",
   "uid": "devops-pipeline-security-dashboard",
-  "version": 19
+  "version": 21
 }
