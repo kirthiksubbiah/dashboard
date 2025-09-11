@@ -1,0 +1,1148 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "grafana",
+          "uid": "-- Grafana --"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": 0,
+  "links": [],
+  "panels": [
+    {
+      "fieldConfig": {
+        "defaults": {},
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 7,
+      "options": {
+        "code": {
+          "language": "plaintext",
+          "showLineNumbers": false,
+          "showMiniMap": false
+        },
+        "content": "<div style=\"color: black; background-color: white; padding: 10px; text-align: center; border-bottom: 2px solid #E0E0E0;\">\n  <h1>Security Metrics Dashboard</h1>\n</div>\n",
+        "mode": "markdown"
+      },
+      "pluginVersion": "12.2.0-17556714384",
+      "title": "Security Metrics Dashboard",
+      "type": "text"
+    },
+    {
+      "datasource": {
+        "type": "yesoreyeram-infinity-datasource",
+        "uid": "bew5oqwhisrggd"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "day"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 5,
+        "x": 0,
+        "y": 4
+      },
+      "id": 8,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "12.2.0-17556714384",
+      "targets": [
+        {
+          "columns": [
+            {
+              "selector": "status",
+              "text": "",
+              "type": "string"
+            },
+            {
+              "selector": "days_open",
+              "text": "",
+              "type": "number"
+            }
+          ],
+          "data": "id,discovery_date,app,severity,status,days_open,short_description\nVULN-1000,2025-09-01,payments,Medium,Open,8,SQL injection found in user search\nVULN-1001,2025-08-29,auth,High,Fixed,11,Outdated library with known RCE\nVULN-1002,2025-09-07,myapp,Low,Open,2,Broken auth flow allows token reuse\nVULN-1003,2025-08-20,api-gateway,Medium,Open,20,Missing TLS on internal API\nVULN-1004,2025-09-03,billing,Critical,Fixed,6,Excessive permissions on service account\nVULN-1005,2025-08-31,search,Medium,Open,9,Sensitive data leaked in logs\nVULN-1006,2025-09-08,frontend,High,Open,1,Password brute-force possible (weak lockout)\nVULN-1007,2025-08-25,orders,Medium,Fixed,15,Open redirect in payment flow\nVULN-1008,2025-09-05,inventory,Low,Open,4,Privilege escalation via API\nVULN-1009,2025-08-28,analytics,High,Open,12,Information disclosure in error messages\n",
+          "datasource": {
+            "type": "yesoreyeram-infinity-datasource",
+            "uid": "bew5oqwhisrggd"
+          },
+          "filters": [],
+          "format": "table",
+          "global_query_id": "",
+          "parser": "backend",
+          "refId": "A",
+          "root_selector": "",
+          "source": "inline",
+          "type": "csv",
+          "url": "",
+          "url_options": {
+            "data": "",
+            "method": "GET"
+          }
+        }
+      ],
+      "title": "Oldest Open Vulnerabilities",
+      "transformations": [
+        {
+          "id": "filterByValue",
+          "options": {
+            "filters": [
+              {
+                "config": {
+                  "id": "equal",
+                  "options": {
+                    "value": "Open"
+                  }
+                },
+                "fieldName": "status"
+              }
+            ],
+            "match": "any",
+            "type": "include"
+          }
+        },
+        {
+          "id": "filterFieldsByName",
+          "options": {
+            "include": {
+              "names": [
+                "days_open"
+              ]
+            }
+          }
+        },
+        {
+          "id": "reduce",
+          "options": {
+            "reducers": [
+              "max"
+            ]
+          }
+        }
+      ],
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "yesoreyeram-infinity-datasource",
+        "uid": "bew5oqwhisrggd"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "semi-dark-red",
+                "value": 0
+              },
+              {
+                "color": "green",
+                "value": 90
+              }
+            ]
+          },
+          "unit": "percent"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 5,
+        "x": 5,
+        "y": 4
+      },
+      "id": 5,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "12.2.0-17556714384",
+      "targets": [
+        {
+          "columns": [
+            {
+              "selector": "date",
+              "text": "",
+              "type": "timestamp"
+            },
+            {
+              "selector": "security_coverage_pct",
+              "text": "",
+              "type": "number"
+            }
+          ],
+          "data": "date,vuln_open_per_release,security_technical_debt,mean_vuln_age_days,security_coverage_pct,mttd_minutes,mttr_minutes,security_incidents_count,successful_response_pct,log_coverage_pct,compliance_gdpr_status,compliance_iso27001_status,compliance_soc2_status,non_compliant_systems_count,alert_volumes_total,alert_true_positive_pct,audit_pass_rate_pct\n2025-08-27,2,60,8.9,94.3,173.7,110.7,1,88.7,71.2,Compliant,Compliant,Partial,0,335,77.6,87.4\n2025-08-28,2,56,6.8,96.6,105.3,221.2,1,81.2,90.1,Partial,Compliant,Compliant,1,153,55.9,79.1\n2025-08-29,3,64,3.5,95.6,115.6,202.9,2,71.9,96.8,Compliant,Partial,Compliant,0,374,39.6,68.3\n2025-08-30,5,63,9.3,76.2,144.9,220.8,2,89.2,85.9,Compliant,Partial,Partial,1,90,73.2,96.8\n2025-08-31,3,53,7.1,79.3,51.8,172.6,2,97.7,66.5,Compliant,Compliant,Compliant,0,399,92.4,89.1\n2025-09-01,4,49,3.6,88.6,83.7,211.8,2,77.6,94.2,Partial,Partial,Partial,1,363,74.1,78.4\n2025-09-02,3,59,1.9,93.1,203.6,274.4,1,65.2,74.6,Compliant,Partial,Compliant,4,379,66.7,61.3\n2025-09-03,2,48,2.9,98.6,92.3,246.2,1,83.5,92.3,Compliant,Compliant,Non-Compliant,2,188,90.6,74.8\n2025-09-04,2,67,10.3,83.2,188.9,54.6,0,92.4,89.7,Compliant,Partial,Compliant,1,413,54.2,65.2\n2025-09-05,2,62,7.2,85.6,48.2,294.5,1,93.5,98.5,Partial,Partial,Partial,2,205,72.3,99.3\n2025-09-06,2,47,5.4,89.2,123.6,129.9,1,79.1,88.1,Compliant,Compliant,Compliant,3,208,82.1,94.2\n2025-09-07,5,59,11.4,92.6,236.5,284.3,3,67.8,82.7,Compliant,Compliant,Partial,3,225,61.7,85.9\n2025-09-08,3,49,5.7,97.1,41.8,211.4,2,74.3,95.6,Partial,Compliant,Compliant,2,371,81.2,71.5\n2025-09-09,2,57,9.2,87.7,72.6,112.3,1,90.2,93.3,Compliant,Partial,Compliant,0,352,88.4,98.2\n",
+          "datasource": {
+            "type": "yesoreyeram-infinity-datasource",
+            "uid": "bew5oqwhisrggd"
+          },
+          "filters": [],
+          "format": "table",
+          "global_query_id": "",
+          "parser": "backend",
+          "refId": "A",
+          "root_selector": "",
+          "source": "inline",
+          "type": "csv",
+          "url": "",
+          "url_options": {
+            "data": "",
+            "method": "GET"
+          }
+        }
+      ],
+      "title": "Security Coverage",
+      "transformations": [
+        {
+          "id": "filterFieldsByName",
+          "options": {}
+        },
+        {
+          "id": "reduce",
+          "options": {
+            "reducers": [
+              "lastNotNull"
+            ]
+          }
+        }
+      ],
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "yesoreyeram-infinity-datasource",
+        "uid": "bew5oqwhisrggd"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "footer": {
+              "reducers": []
+            },
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 14,
+        "x": 10,
+        "y": 4
+      },
+      "id": 1,
+      "options": {
+        "cellHeight": "sm",
+        "showHeader": true
+      },
+      "pluginVersion": "12.2.0-17556714384",
+      "targets": [
+        {
+          "columns": [],
+          "data": "date,vuln_open_per_release,security_technical_debt,mean_vuln_age_days,security_coverage_pct,mttd_minutes,mttr_minutes,security_incidents_count,successful_response_pct,log_coverage_pct,compliance_gdpr_status,compliance_iso27001_status,compliance_soc2_status,non_compliant_systems_count,alert_volumes_total,alert_true_positive_pct,audit_pass_rate_pct\n2025-08-27,2,60,8.9,94.3,173.7,110.7,1,88.7,71.2,Compliant,Compliant,Partial,0,335,77.6,87.4\n2025-08-28,2,56,6.8,96.6,105.3,221.2,1,81.2,90.1,Partial,Compliant,Compliant,1,153,55.9,79.1\n2025-08-29,3,64,3.5,95.6,115.6,202.9,2,71.9,96.8,Compliant,Partial,Compliant,0,374,39.6,68.3\n2025-08-30,5,63,9.3,76.2,144.9,220.8,2,89.2,85.9,Compliant,Partial,Partial,1,90,73.2,96.8\n2025-08-31,3,53,7.1,79.3,51.8,172.6,2,97.7,66.5,Compliant,Compliant,Compliant,0,399,92.4,89.1\n2025-09-01,4,49,3.6,88.6,83.7,211.8,2,77.6,94.2,Partial,Partial,Partial,1,363,74.1,78.4\n2025-09-02,3,59,1.9,93.1,203.6,274.4,1,65.2,74.6,Compliant,Partial,Compliant,4,379,66.7,61.3\n2025-09-03,2,48,2.9,98.6,92.3,246.2,1,83.5,92.3,Compliant,Compliant,Non-Compliant,2,188,90.6,74.8\n2025-09-04,2,67,10.3,83.2,188.9,54.6,0,92.4,89.7,Compliant,Partial,Compliant,1,413,54.2,65.2\n2025-09-05,2,62,7.2,85.6,48.2,294.5,1,93.5,98.5,Partial,Partial,Partial,2,205,72.3,99.3\n2025-09-06,2,47,5.4,89.2,123.6,129.9,1,79.1,88.1,Compliant,Compliant,Compliant,3,208,82.1,94.2\n2025-09-07,5,59,11.4,92.6,236.5,284.3,3,67.8,82.7,Compliant,Compliant,Partial,3,225,61.7,85.9\n2025-09-08,3,49,5.7,97.1,41.8,211.4,2,74.3,95.6,Partial,Compliant,Compliant,2,371,81.2,71.5\n2025-09-09,2,57,9.2,87.7,72.6,112.3,1,90.2,93.3,Compliant,Partial,Compliant,0,352,88.4,98.2\n",
+          "datasource": {
+            "type": "yesoreyeram-infinity-datasource",
+            "uid": "bew5oqwhisrggd"
+          },
+          "filters": [],
+          "format": "table",
+          "global_query_id": "",
+          "parser": "backend",
+          "refId": "A",
+          "root_selector": "",
+          "source": "inline",
+          "type": "csv",
+          "url": "",
+          "url_options": {
+            "data": "",
+            "method": "GET"
+          }
+        }
+      ],
+      "title": "Open Vulnerability Table",
+      "transformations": [
+        {
+          "id": "filterFieldsByName",
+          "options": {
+            "include": {
+              "names": [
+                "vuln_open_per_release",
+                "date"
+              ],
+              "pattern": "vuln_open_per_release"
+            }
+          }
+        }
+      ],
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "type": "yesoreyeram-infinity-datasource",
+        "uid": "bew5oqwhisrggd"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "showValues": false,
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 10,
+        "x": 0,
+        "y": 9
+      },
+      "id": 3,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "12.2.0-17556714384",
+      "targets": [
+        {
+          "columns": [
+            {
+              "selector": "date",
+              "text": "",
+              "type": "timestamp"
+            },
+            {
+              "selector": "security_technical_debt",
+              "text": "",
+              "type": "number"
+            }
+          ],
+          "data": "date,vuln_open_per_release,security_technical_debt,mean_vuln_age_days,security_coverage_pct,mttd_minutes,mttr_minutes,security_incidents_count,successful_response_pct,log_coverage_pct,compliance_gdpr_status,compliance_iso27001_status,compliance_soc2_status,non_compliant_systems_count,alert_volumes_total,alert_true_positive_pct,audit_pass_rate_pct\n2025-08-27,2,60,8.9,94.3,173.7,110.7,1,88.7,71.2,Compliant,Compliant,Partial,0,335,77.6,87.4\n2025-08-28,2,56,6.8,96.6,105.3,221.2,1,81.2,90.1,Partial,Compliant,Compliant,1,153,55.9,79.1\n2025-08-29,3,64,3.5,95.6,115.6,202.9,2,71.9,96.8,Compliant,Partial,Compliant,0,374,39.6,68.3\n2025-08-30,5,63,9.3,76.2,144.9,220.8,2,89.2,85.9,Compliant,Partial,Partial,1,90,73.2,96.8\n2025-08-31,3,53,7.1,79.3,51.8,172.6,2,97.7,66.5,Compliant,Compliant,Compliant,0,399,92.4,89.1\n2025-09-01,4,49,3.6,88.6,83.7,211.8,2,77.6,94.2,Partial,Partial,Partial,1,363,74.1,78.4\n2025-09-02,3,59,1.9,93.1,203.6,274.4,1,65.2,74.6,Compliant,Partial,Compliant,4,379,66.7,61.3\n2025-09-03,2,48,2.9,98.6,92.3,246.2,1,83.5,92.3,Compliant,Compliant,Non-Compliant,2,188,90.6,74.8\n2025-09-04,2,67,10.3,83.2,188.9,54.6,0,92.4,89.7,Compliant,Partial,Compliant,1,413,54.2,65.2\n2025-09-05,2,62,7.2,85.6,48.2,294.5,1,93.5,98.5,Partial,Partial,Partial,2,205,72.3,99.3\n2025-09-06,2,47,5.4,89.2,123.6,129.9,1,79.1,88.1,Compliant,Compliant,Compliant,3,208,82.1,94.2\n2025-09-07,5,59,11.4,92.6,236.5,284.3,3,67.8,82.7,Compliant,Compliant,Partial,3,225,61.7,85.9\n2025-09-08,3,49,5.7,97.1,41.8,211.4,2,74.3,95.6,Partial,Compliant,Compliant,2,371,81.2,71.5\n2025-09-09,2,57,9.2,87.7,72.6,112.3,1,90.2,93.3,Compliant,Partial,Compliant,0,352,88.4,98.2\n",
+          "datasource": {
+            "type": "yesoreyeram-infinity-datasource",
+            "uid": "bew5oqwhisrggd"
+          },
+          "filters": [],
+          "format": "table",
+          "global_query_id": "",
+          "parser": "backend",
+          "refId": "A",
+          "root_selector": "",
+          "source": "inline",
+          "type": "csv",
+          "url": "",
+          "url_options": {
+            "data": "",
+            "method": "GET"
+          }
+        }
+      ],
+      "title": "Security Technical Debt",
+      "transformations": [
+        {
+          "id": "filterFieldsByName",
+          "options": {
+            "include": {
+              "names": [
+                "security_technical_debt",
+                "date"
+              ],
+              "pattern": "security_technical_debt"
+            }
+          }
+        }
+      ],
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "yesoreyeram-infinity-datasource",
+        "uid": "bew5oqwhisrggd"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "showValues": false,
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 14,
+        "x": 10,
+        "y": 11
+      },
+      "id": 2,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "12.2.0-17556714384",
+      "targets": [
+        {
+          "columns": [
+            {
+              "selector": "date",
+              "text": "",
+              "type": "timestamp"
+            },
+            {
+              "selector": "vuln_open_per_release",
+              "text": "",
+              "type": "number"
+            }
+          ],
+          "computed_columns": [],
+          "data": "date,vuln_open_per_release,security_technical_debt,mean_vuln_age_days,security_coverage_pct,mttd_minutes,mttr_minutes,security_incidents_count,successful_response_pct,log_coverage_pct,compliance_gdpr_status,compliance_iso27001_status,compliance_soc2_status,non_compliant_systems_count,alert_volumes_total,alert_true_positive_pct,audit_pass_rate_pct\n2025-08-27,2,60,8.9,94.3,173.7,110.7,1,88.7,71.2,Compliant,Compliant,Partial,0,335,77.6,87.4\n2025-08-28,2,56,6.8,96.6,105.3,221.2,1,81.2,90.1,Partial,Compliant,Compliant,1,153,55.9,79.1\n2025-08-29,3,64,3.5,95.6,115.6,202.9,2,71.9,96.8,Compliant,Partial,Compliant,0,374,39.6,68.3\n2025-08-30,5,63,9.3,76.2,144.9,220.8,2,89.2,85.9,Compliant,Partial,Partial,1,90,73.2,96.8\n2025-08-31,3,53,7.1,79.3,51.8,172.6,2,97.7,66.5,Compliant,Compliant,Compliant,0,399,92.4,89.1\n2025-09-01,4,49,3.6,88.6,83.7,211.8,2,77.6,94.2,Partial,Partial,Partial,1,363,74.1,78.4\n2025-09-02,3,59,1.9,93.1,203.6,274.4,1,65.2,74.6,Compliant,Partial,Compliant,4,379,66.7,61.3\n2025-09-03,2,48,2.9,98.6,92.3,246.2,1,83.5,92.3,Compliant,Compliant,Non-Compliant,2,188,90.6,74.8\n2025-09-04,2,67,10.3,83.2,188.9,54.6,0,92.4,89.7,Compliant,Partial,Compliant,1,413,54.2,65.2\n2025-09-05,2,62,7.2,85.6,48.2,294.5,1,93.5,98.5,Partial,Partial,Partial,2,205,72.3,99.3\n2025-09-06,2,47,5.4,89.2,123.6,129.9,1,79.1,88.1,Compliant,Compliant,Compliant,3,208,82.1,94.2\n2025-09-07,5,59,11.4,92.6,236.5,284.3,3,67.8,82.7,Compliant,Compliant,Partial,3,225,61.7,85.9\n2025-09-08,3,49,5.7,97.1,41.8,211.4,2,74.3,95.6,Partial,Compliant,Compliant,2,371,81.2,71.5\n2025-09-09,2,57,9.2,87.7,72.6,112.3,1,90.2,93.3,Compliant,Partial,Compliant,0,352,88.4,98.2\n",
+          "datasource": {
+            "type": "yesoreyeram-infinity-datasource",
+            "uid": "bew5oqwhisrggd"
+          },
+          "filters": [],
+          "format": "table",
+          "global_query_id": "",
+          "parser": "backend",
+          "refId": "A",
+          "root_selector": "",
+          "source": "inline",
+          "type": "csv",
+          "url": "",
+          "url_options": {
+            "data": "",
+            "method": "GET"
+          }
+        }
+      ],
+      "title": "Vulnerabilities / release",
+      "transformations": [
+        {
+          "id": "filterFieldsByName",
+          "options": {
+            "include": {
+              "names": [
+                "vuln_open_per_release",
+                "date"
+              ],
+              "pattern": "vuln_open_per_release"
+            }
+          }
+        }
+      ],
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "yesoreyeram-infinity-datasource",
+        "uid": "bew5oqwhisrggd"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "showValues": false,
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "percent"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 24,
+        "x": 0,
+        "y": 18
+      },
+      "id": 4,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "12.2.0-17556714384",
+      "targets": [
+        {
+          "columns": [
+            {
+              "selector": "date",
+              "text": "",
+              "type": "timestamp"
+            },
+            {
+              "selector": "mttd_minutes",
+              "text": "",
+              "type": "number"
+            },
+            {
+              "selector": "mttr_minutes",
+              "text": "",
+              "type": "number"
+            }
+          ],
+          "data": "date,vuln_open_per_release,security_technical_debt,mean_vuln_age_days,security_coverage_pct,mttd_minutes,mttr_minutes,security_incidents_count,successful_response_pct,log_coverage_pct,compliance_gdpr_status,compliance_iso27001_status,compliance_soc2_status,non_compliant_systems_count,alert_volumes_total,alert_true_positive_pct,audit_pass_rate_pct\n2025-08-27,2,60,8.9,94.3,173.7,110.7,1,88.7,71.2,Compliant,Compliant,Partial,0,335,77.6,87.4\n2025-08-28,2,56,6.8,96.6,105.3,221.2,1,81.2,90.1,Partial,Compliant,Compliant,1,153,55.9,79.1\n2025-08-29,3,64,3.5,95.6,115.6,202.9,2,71.9,96.8,Compliant,Partial,Compliant,0,374,39.6,68.3\n2025-08-30,5,63,9.3,76.2,144.9,220.8,2,89.2,85.9,Compliant,Partial,Partial,1,90,73.2,96.8\n2025-08-31,3,53,7.1,79.3,51.8,172.6,2,97.7,66.5,Compliant,Compliant,Compliant,0,399,92.4,89.1\n2025-09-01,4,49,3.6,88.6,83.7,211.8,2,77.6,94.2,Partial,Partial,Partial,1,363,74.1,78.4\n2025-09-02,3,59,1.9,93.1,203.6,274.4,1,65.2,74.6,Compliant,Partial,Compliant,4,379,66.7,61.3\n2025-09-03,2,48,2.9,98.6,92.3,246.2,1,83.5,92.3,Compliant,Compliant,Non-Compliant,2,188,90.6,74.8\n2025-09-04,2,67,10.3,83.2,188.9,54.6,0,92.4,89.7,Compliant,Partial,Compliant,1,413,54.2,65.2\n2025-09-05,2,62,7.2,85.6,48.2,294.5,1,93.5,98.5,Partial,Partial,Partial,2,205,72.3,99.3\n2025-09-06,2,47,5.4,89.2,123.6,129.9,1,79.1,88.1,Compliant,Compliant,Compliant,3,208,82.1,94.2\n2025-09-07,5,59,11.4,92.6,236.5,284.3,3,67.8,82.7,Compliant,Compliant,Partial,3,225,61.7,85.9\n2025-09-08,3,49,5.7,97.1,41.8,211.4,2,74.3,95.6,Partial,Compliant,Compliant,2,371,81.2,71.5\n2025-09-09,2,57,9.2,87.7,72.6,112.3,1,90.2,93.3,Compliant,Partial,Compliant,0,352,88.4,98.2\n",
+          "datasource": {
+            "type": "yesoreyeram-infinity-datasource",
+            "uid": "bew5oqwhisrggd"
+          },
+          "filters": [],
+          "format": "table",
+          "global_query_id": "",
+          "parser": "backend",
+          "refId": "A",
+          "root_selector": "",
+          "source": "inline",
+          "type": "csv",
+          "url": "",
+          "url_options": {
+            "data": "",
+            "method": "GET"
+          }
+        }
+      ],
+      "title": "MTTD vs MTTR",
+      "transformations": [
+        {
+          "id": "filterFieldsByName",
+          "options": {
+            "include": {
+              "names": [
+                "date",
+                "mttd_minutes",
+                "mttr_minutes"
+              ]
+            }
+          }
+        }
+      ],
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "yesoreyeram-infinity-datasource",
+        "uid": "bew5oqwhisrggd"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "fillOpacity": 80,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineWidth": 1,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 11,
+        "x": 0,
+        "y": 27
+      },
+      "id": 9,
+      "options": {
+        "barRadius": 0,
+        "barWidth": 0.97,
+        "fullHighlight": false,
+        "groupWidth": 0.7,
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "orientation": "auto",
+        "showValue": "auto",
+        "stacking": "none",
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "single",
+          "sort": "none"
+        },
+        "xTickLabelRotation": 0,
+        "xTickLabelSpacing": 0
+      },
+      "pluginVersion": "12.2.0-17556714384",
+      "targets": [
+        {
+          "columns": [
+            {
+              "selector": "response_effective",
+              "text": "",
+              "type": "string"
+            }
+          ],
+          "csv_options": {
+            "relax_column_count": false
+          },
+          "data": "incident_id,timestamp,service,incident_type,mttd_minutes,mttr_minutes,response_effective,notes\nINC-500,2025-09-09 05:30:00,auth,Service outage,200.5,421.2,Yes,\"Auto-mitigated by WAF\"\nINC-501,2025-09-08 16:10:00,payments,Latency spike,98.4,195.7,Yes,\"Investigating potential leak\"\nINC-502,2025-09-07 09:00:00,myapp,Data breach,23.7,304.6,No,\"Database failover executed\"\nINC-503,2025-09-05 22:40:00,api-gateway,DDoS,75.9,143.2,Yes,\"Credentials rotated, patch applied\"\nINC-504,2025-09-04 13:15:00,database,Database degradation,122.3,412.4,Yes,\"High latency from index rebuild\"\nINC-505,2025-09-03 03:20:00,frontend,Unauthorized access,15.2,365.5,No,\"DDoS mitigated, seen as false positive\"\nINC-506,2025-09-02 19:55:00,orders,Service outage,212.8,278.6,Yes,\"Partial outage in EU zone\"\nINC-507,2025-09-01 07:05:00,inventory,Latency spike,41.9,56.3,Yes,\"Incident due to config error\"\nINC-508,2025-08-30 11:30:00,search,Data breach,8.6,333.7,Yes,\"Search nodes restarted\"\nINC-509,2025-08-28 21:00:00,analytics,Unauthorized access,132.4,412.2,Yes,\"Alert threshold too low\"\n",
+          "datasource": {
+            "type": "yesoreyeram-infinity-datasource",
+            "uid": "bew5oqwhisrggd"
+          },
+          "filters": [],
+          "format": "table",
+          "global_query_id": "",
+          "parser": "backend",
+          "refId": "A",
+          "root_selector": "",
+          "source": "inline",
+          "type": "csv",
+          "url": "",
+          "url_options": {
+            "data": "",
+            "method": "GET"
+          }
+        }
+      ],
+      "title": "Effective vs Failed Responses",
+      "transformations": [
+        {
+          "id": "groupBy",
+          "options": {
+            "fields": {
+              "response_effective": {
+                "aggregations": [
+                  "count"
+                ],
+                "operation": "groupby"
+              }
+            }
+          }
+        }
+      ],
+      "type": "barchart"
+    },
+    {
+      "datasource": {
+        "type": "yesoreyeram-infinity-datasource",
+        "uid": "bew5oqwhisrggd"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            }
+          },
+          "mappings": []
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 13,
+        "x": 11,
+        "y": 27
+      },
+      "id": 10,
+      "options": {
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "pieType": "pie",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "sort": "desc",
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "12.2.0-17556714384",
+      "targets": [
+        {
+          "columns": [
+            {
+              "selector": "app",
+              "text": "",
+              "type": "string"
+            },
+            {
+              "selector": "status",
+              "text": "",
+              "type": "string"
+            }
+          ],
+          "data": "id,discovery_date,app,severity,status,days_open,short_description\nVULN-1000,2025-09-01,payments,Medium,Open,8,SQL injection found in user search\nVULN-1001,2025-08-29,auth,High,Fixed,11,Outdated library with known RCE\nVULN-1002,2025-09-07,myapp,Low,Open,2,Broken auth flow allows token reuse\nVULN-1003,2025-08-20,api-gateway,Medium,Open,20,Missing TLS on internal API\nVULN-1004,2025-09-03,billing,Critical,Fixed,6,Excessive permissions on service account\nVULN-1005,2025-08-31,search,Medium,Open,9,Sensitive data leaked in logs\nVULN-1006,2025-09-08,frontend,High,Open,1,Password brute-force possible (weak lockout)\nVULN-1007,2025-08-25,orders,Medium,Fixed,15,Open redirect in payment flow\nVULN-1008,2025-09-05,inventory,Low,Open,4,Privilege escalation via API\nVULN-1009,2025-08-28,analytics,High,Open,12,Information disclosure in error messages\n",
+          "datasource": {
+            "type": "yesoreyeram-infinity-datasource",
+            "uid": "bew5oqwhisrggd"
+          },
+          "filters": [],
+          "format": "table",
+          "global_query_id": "",
+          "parser": "backend",
+          "refId": "A",
+          "root_selector": "",
+          "source": "inline",
+          "type": "csv",
+          "url": "",
+          "url_options": {
+            "data": "",
+            "method": "GET"
+          }
+        }
+      ],
+      "title": "Vulnerabilities per Application",
+      "transformations": [
+        {
+          "id": "filterByValue",
+          "options": {
+            "filters": [
+              {
+                "config": {
+                  "id": "equal",
+                  "options": {
+                    "value": "Open"
+                  }
+                },
+                "fieldName": "status"
+              }
+            ],
+            "match": "any",
+            "type": "include"
+          }
+        },
+        {
+          "id": "groupBy",
+          "options": {
+            "fields": {
+              "app": {
+                "aggregations": [
+                  "count"
+                ],
+                "operation": "groupby"
+              },
+              "status": {
+                "aggregations": [
+                  "count"
+                ],
+                "operation": "aggregate"
+              }
+            }
+          }
+        }
+      ],
+      "type": "piechart"
+    },
+    {
+      "datasource": {
+        "type": "yesoreyeram-infinity-datasource",
+        "uid": "bew5oqwhisrggd"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "footer": {
+              "reducers": []
+            },
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 10,
+        "w": 24,
+        "x": 0,
+        "y": 35
+      },
+      "id": 6,
+      "options": {
+        "cellHeight": "sm",
+        "showHeader": true
+      },
+      "pluginVersion": "12.2.0-17556714384",
+      "targets": [
+        {
+          "columns": [],
+          "data": "date,vuln_open_per_release,security_technical_debt,mean_vuln_age_days,security_coverage_pct,mttd_minutes,mttr_minutes,security_incidents_count,successful_response_pct,log_coverage_pct,compliance_gdpr_status,compliance_iso27001_status,compliance_soc2_status,non_compliant_systems_count,alert_volumes_total,alert_true_positive_pct,audit_pass_rate_pct\n2025-08-27,2,60,8.9,94.3,173.7,110.7,1,88.7,71.2,Compliant,Compliant,Partial,0,335,77.6,87.4\n2025-08-28,2,56,6.8,96.6,105.3,221.2,1,81.2,90.1,Partial,Compliant,Compliant,1,153,55.9,79.1\n2025-08-29,3,64,3.5,95.6,115.6,202.9,2,71.9,96.8,Compliant,Partial,Compliant,0,374,39.6,68.3\n2025-08-30,5,63,9.3,76.2,144.9,220.8,2,89.2,85.9,Compliant,Partial,Partial,1,90,73.2,96.8\n2025-08-31,3,53,7.1,79.3,51.8,172.6,2,97.7,66.5,Compliant,Compliant,Compliant,0,399,92.4,89.1\n2025-09-01,4,49,3.6,88.6,83.7,211.8,2,77.6,94.2,Partial,Partial,Partial,1,363,74.1,78.4\n2025-09-02,3,59,1.9,93.1,203.6,274.4,1,65.2,74.6,Compliant,Partial,Compliant,4,379,66.7,61.3\n2025-09-03,2,48,2.9,98.6,92.3,246.2,1,83.5,92.3,Compliant,Compliant,Non-Compliant,2,188,90.6,74.8\n2025-09-04,2,67,10.3,83.2,188.9,54.6,0,92.4,89.7,Compliant,Partial,Compliant,1,413,54.2,65.2\n2025-09-05,2,62,7.2,85.6,48.2,294.5,1,93.5,98.5,Partial,Partial,Partial,2,205,72.3,99.3\n2025-09-06,2,47,5.4,89.2,123.6,129.9,1,79.1,88.1,Compliant,Compliant,Compliant,3,208,82.1,94.2\n2025-09-07,5,59,11.4,92.6,236.5,284.3,3,67.8,82.7,Compliant,Compliant,Partial,3,225,61.7,85.9\n2025-09-08,3,49,5.7,97.1,41.8,211.4,2,74.3,95.6,Partial,Compliant,Compliant,2,371,81.2,71.5\n2025-09-09,2,57,9.2,87.7,72.6,112.3,1,90.2,93.3,Compliant,Partial,Compliant,0,352,88.4,98.2\n",
+          "datasource": {
+            "type": "yesoreyeram-infinity-datasource",
+            "uid": "bew5oqwhisrggd"
+          },
+          "filters": [],
+          "format": "table",
+          "global_query_id": "",
+          "parser": "backend",
+          "refId": "A",
+          "root_selector": "",
+          "source": "inline",
+          "type": "csv",
+          "url": "",
+          "url_options": {
+            "data": "",
+            "method": "GET"
+          }
+        }
+      ],
+      "title": "Compliance Status",
+      "transformations": [
+        {
+          "id": "filterFieldsByName",
+          "options": {
+            "include": {
+              "names": [
+                "compliance_gdpr_status",
+                "date",
+                "compliance_soc2_status",
+                "compliance_iso27001_status"
+              ],
+              "pattern": "compliance_gdpr_status"
+            }
+          }
+        },
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {},
+            "includeByName": {},
+            "indexByName": {
+              "compliance_gdpr_status": 1,
+              "compliance_iso27001_status": 2,
+              "compliance_soc2_status": 3,
+              "date": 0
+            },
+            "renameByName": {}
+          }
+        }
+      ],
+      "type": "table"
+    }
+  ],
+  "preload": false,
+  "schemaVersion": 42,
+  "tags": [],
+  "templating": {
+    "list": []
+  },
+  "time": {
+    "from": "now-15d",
+    "to": "now"
+  },
+  "timepicker": {},
+  "timezone": "browser",
+  "title": "Security dashboard",
+  "uid": "ki9nx5n",
+  "version": 11
+}
