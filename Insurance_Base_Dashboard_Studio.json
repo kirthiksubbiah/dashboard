@@ -1,0 +1,327 @@
+{
+  "visualizations": {
+    "viz_IgWulM21": {
+      "type": "splunk.table",
+      "options": {
+        "count": 20,
+        "dataOverlayMode": "none",
+        "drilldown": "none",
+        "showRowNumbers": false,
+        "showInternalFields": false,
+        "columnFormat": {
+          "Availability": {
+            "data": "> table | seriesByName(\"Availability\") | formatByType(AvailabilityColumnNumberConfig)",
+            "rowBackgroundColors": "> table | seriesByName(\"Availability\") | rangeValue(AvailabilityColumnColorConfig)"
+          },
+          "Latency": {
+            "data": "> table | seriesByName(\"Latency\") | formatByType(LatencyColumnNumberConfig)",
+            "rowBackgroundColors": "> table | seriesByName(\"Latency\") | rangeValue(LatencyColumnColorConfig)"
+          },
+          "Saturation": {
+            "data": "> table | seriesByName(\"Saturation\") | formatByType(SaturationColumnNumberConfig)",
+            "rowBackgroundColors": "> table | seriesByName(\"Saturation\") | rangeValue(SaturationColumnColorConfig)"
+          },
+          "ErrorRate": {
+            "rowBackgroundColors": "> table | seriesByName(\"ErrorRate\") | rangeValue(ErrorRateColumnColorConfig)"
+          }
+        }
+      },
+      "context": {
+        "AvailabilityColumnNumberConfig": {
+          "number": {
+            "precision": 0,
+            "thousandSeparated": true,
+            "unitPosition": "after",
+            "unit": "%"
+          }
+        },
+        "LatencyColumnNumberConfig": {
+          "number": {
+            "precision": 0,
+            "thousandSeparated": true,
+            "unitPosition": "after",
+            "unit": "ms"
+          }
+        },
+        "SaturationColumnNumberConfig": {
+          "number": {
+            "precision": 0,
+            "thousandSeparated": true,
+            "unitPosition": "after",
+            "unit": "%"
+          }
+        },
+        "AvailabilityColumnColorConfig": [
+          {
+            "to": 90,
+            "value": "#D41F1F"
+          },
+          {
+            "from": 90,
+            "to": 95,
+            "value": "#F0AD4E"
+          },
+          {
+            "from": 95,
+            "value": "#118832"
+          }
+        ],
+        "LatencyColumnColorConfig": [
+          {
+            "to": 200,
+            "value": "#118832"
+          },
+          {
+            "from": 200,
+            "to": 400,
+            "value": "#F0AD4E"
+          },
+          {
+            "from": 400,
+            "value": "#D41F1F"
+          }
+        ],
+        "ErrorRateColumnColorConfig": [
+          {
+            "to": 1,
+            "value": "#118832"
+          },
+          {
+            "from": 1,
+            "to": 3,
+            "value": "#F0AD4E"
+          },
+          {
+            "from": 3,
+            "value": "#D41F1F"
+          }
+        ],
+        "SaturationColumnColorConfig": [
+          {
+            "to": 50,
+            "value": "#F0AD4E"
+          },
+          {
+            "from": 50,
+            "to": 80,
+            "value": "#D41F1F"
+          },
+          {
+            "from": 80,
+            "value": "#118832"
+          }
+        ]
+      },
+      "dataSources": {
+        "primary": "ds_9uypWSwv"
+      },
+      "title": "Application Health - APM"
+    },
+    "viz_AXC2KIS3": {
+      "type": "splunk.table",
+      "options": {
+        "count": 20,
+        "dataOverlayMode": "none",
+        "drilldown": "none",
+        "showRowNumbers": false,
+        "showInternalFields": false,
+        "columnFormat": {
+          "ErrorRate": {
+            "rowBackgroundColors": "> table | seriesByName(\"ErrorRate\") | rangeValue(ErrorRateColumnColorConfig)"
+          },
+          "Availability": {
+            "data": "> table | seriesByName(\"Availability\") | formatByType(AvailabilityColumnNumberConfig)",
+            "rowBackgroundColors": "> table | seriesByName(\"Availability\") | rangeValue(AvailabilityColumnColorConfig)"
+          },
+          "Latency": {
+            "data": "> table | seriesByName(\"Latency\") | formatByType(LatencyColumnNumberConfig)",
+            "rowBackgroundColors": "> table | seriesByName(\"Latency\") | rangeValue(LatencyColumnColorConfig)"
+          },
+          "Saturation": {
+            "data": "> table | seriesByName(\"Saturation\") | formatByType(SaturationColumnNumberConfig)",
+            "rowBackgroundColors": "> table | seriesByName(\"Saturation\") | rangeValue(SaturationColumnColorConfig)"
+          }
+        }
+      },
+      "context": {
+        "ErrorRateColumnColorConfig": [
+          {
+            "to": 1,
+            "value": "#118832"
+          },
+          {
+            "from": 1,
+            "to": 3,
+            "value": "#F0AD4E"
+          },
+          {
+            "from": 3,
+            "value": "#D41F1F"
+          }
+        ],
+        "AvailabilityColumnNumberConfig": {
+          "number": {
+            "precision": 0,
+            "thousandSeparated": true,
+            "unitPosition": "after",
+            "unit": "%"
+          }
+        },
+        "LatencyColumnNumberConfig": {
+          "number": {
+            "precision": 0,
+            "thousandSeparated": true,
+            "unitPosition": "after",
+            "unit": "ms"
+          }
+        },
+        "SaturationColumnNumberConfig": {
+          "number": {
+            "precision": 0,
+            "thousandSeparated": true,
+            "unitPosition": "after",
+            "unit": "%"
+          }
+        },
+        "AvailabilityColumnColorConfig": [
+          {
+            "to": 90,
+            "value": "#D41F1F"
+          },
+          {
+            "from": 90,
+            "to": 95,
+            "value": "#F0AD4E"
+          },
+          {
+            "from": 95,
+            "value": "#118832"
+          }
+        ],
+        "LatencyColumnColorConfig": [
+          {
+            "to": 200,
+            "value": "#118832"
+          },
+          {
+            "from": 200,
+            "to": 200,
+            "value": "#F0AD4E"
+          },
+          {
+            "from": 200,
+            "value": "#D41F1F"
+          }
+        ],
+        "SaturationColumnColorConfig": [
+          {
+            "to": 50,
+            "value": "#F0AD4E"
+          },
+          {
+            "from": 50,
+            "to": 80,
+            "value": "#D41F1F"
+          },
+          {
+            "from": 80,
+            "value": "#118832"
+          }
+        ]
+      },
+      "dataSources": {
+        "primary": "ds_w7ZAI36t"
+      },
+      "title": "Infrastructure Health"
+    }
+  },
+  "dataSources": {
+    "ds_9uypWSwv": {
+      "type": "ds.search",
+      "options": {
+        "query": "index=main sourcetype=matric_log domain=Application\n| eval _time = strptime(timestamp, \"%Y-%m-%d %H:%M:%S\")\n| sort 0 - _time\n| stats latest(availability) AS Availability latest(latency_ms) AS Latency_ms latest(error_rate) AS ErrorRate latest(saturation_pct) AS Saturation BY name\n| eval Availability = round(Availability,0), Latency_ms = round(Latency_ms,0), Saturation = round(Saturation,0)\n| rename name AS \"Application Name\", Latency_ms AS Latency\n| table \"Application Name\" Availability Latency ErrorRate Saturation",
+        "queryParameters": {
+          "earliest": "0",
+          "sampleRatio": 1
+        }
+      },
+      "name": "Application Health - APM - Table search"
+    },
+    "ds_w7ZAI36t": {
+      "type": "ds.search",
+      "options": {
+        "query": "index=main sourcetype=matric_log domain=Infrastructure\n| eval _time = strptime(timestamp, \"%Y-%m-%d %H:%M:%S\")\n| sort 0 - _time\n| stats latest(availability) AS Availability latest(latency_ms) AS Latency_ms latest(error_rate) AS ErrorRate latest(saturation_pct) AS Saturation BY name\n| eval Availability = round(Availability,0), Latency_ms = round(Latency_ms,0), Saturation = round(Saturation,0)\n| rename name AS \"Infrastructure Component\", Latency_ms AS Latency\n| table \"Infrastructure Component\" Availability Latency ErrorRate Saturation",
+        "queryParameters": {
+          "earliest": "0",
+          "sampleRatio": 1
+        }
+      },
+      "name": "Infrastructure Health - Table search"
+    }
+  },
+  "defaults": {
+    "dataSources": {
+      "ds.search": {
+        "options": {
+          "queryParameters": {}
+        }
+      }
+    },
+    "visualizations": {
+      "global": {
+        "showProgressBar": true
+      }
+    }
+  },
+  "inputs": {},
+  "layout": {
+    "options": {},
+    "globalInputs": [],
+    "tabs": {
+      "items": [
+        {
+          "layoutId": "layout_1",
+          "label": "New tab"
+        }
+      ]
+    },
+    "layoutDefinitions": {
+      "layout_1": {
+        "type": "grid",
+        "structure": [
+          {
+            "item": "viz_IgWulM21",
+            "type": "block",
+            "position": {
+              "x": 0,
+              "y": 0,
+              "w": 1440,
+              "h": 250
+            }
+          },
+          {
+            "item": "viz_AXC2KIS3",
+            "type": "block",
+            "position": {
+              "x": 0,
+              "y": 250,
+              "w": 1440,
+              "h": 250
+            }
+          }
+        ],
+        "options": {
+          "width": 1440,
+          "height": 500,
+          "gutterSize": 9
+        }
+      }
+    }
+  },
+  "description": "",
+  "title": "Insurance Base Dashboard Studio",
+  "applicationProperties": {
+    "hideEdit": false,
+    "hideExport": false
+  }
+}
