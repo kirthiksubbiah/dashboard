@@ -1,0 +1,428 @@
+{
+  "visualizations": {
+    "viz_a34sEIN2": {
+      "type": "splunk.singlevalue",
+      "options": {
+        "backgroundColor": "> majorValue | rangeValue(convertedColorRange)"
+      },
+      "context": {
+        "convertedColorRange": [
+          {
+            "from": 100,
+            "value": "#118832"
+          },
+          {
+            "from": 70,
+            "to": 100,
+            "value": "#118832"
+          },
+          {
+            "from": 30,
+            "to": 70,
+            "value": "#118832"
+          },
+          {
+            "from": 0,
+            "to": 30,
+            "value": "#118832"
+          },
+          {
+            "to": 0,
+            "value": "#53a051"
+          }
+        ]
+      },
+      "dataSources": {
+        "primary": "ds_BnAiaZ4X"
+      },
+      "title": "Total     Enrollments"
+    },
+    "viz_rrUe2YP2": {
+      "type": "splunk.singlevalue",
+      "options": {
+        "majorColor": "> majorValue | rangeValue(convertedColorRange)"
+      },
+      "context": {
+        "convertedColorRange": [
+          {
+            "from": 60,
+            "value": "#dc4e41"
+          },
+          {
+            "to": 60,
+            "value": "#53a051"
+          }
+        ]
+      },
+      "dataSources": {
+        "primary": "ds_ecnYvlI2"
+      },
+      "title": "In-progress enrollments"
+    },
+    "viz_xSY1kGcP": {
+      "type": "splunk.singlevalue",
+      "options": {
+        "majorColor": "> majorValue | rangeValue(convertedColorRange)"
+      },
+      "context": {
+        "convertedColorRange": [
+          {
+            "from": 0,
+            "value": "#118832"
+          },
+          {
+            "to": 0,
+            "value": "#53a051"
+          }
+        ]
+      },
+      "dataSources": {
+        "primary": "ds_VAMlGVhI"
+      },
+      "title": "Completed Enrollments"
+    },
+    "viz_enWAkJJS": {
+      "type": "splunk.singlevalue",
+      "options": {
+        "majorColor": "> majorValue | rangeValue(convertedColorRange)"
+      },
+      "context": {
+        "convertedColorRange": [
+          {
+            "from": 0,
+            "value": "#dc4e41"
+          },
+          {
+            "to": 0,
+            "value": "#d41f1f"
+          }
+        ]
+      },
+      "dataSources": {
+        "primary": "ds_Rj7NISKK"
+      },
+      "title": "Failed Enrollments"
+    },
+    "viz_SQ1OdId1": {
+      "type": "splunk.singlevalue",
+      "options": {
+        "majorColor": "> majorValue | rangeValue(convertedColorRange)"
+      },
+      "context": {
+        "convertedColorRange": [
+          {
+            "from": 0,
+            "value": "#d94e17"
+          },
+          {
+            "to": 0,
+            "value": "#d94e17"
+          }
+        ]
+      },
+      "dataSources": {
+        "primary": "ds_2ULctwcE"
+      },
+      "title": "Cancelled Enrollments"
+    },
+    "viz_WADK6iDe": {
+      "type": "splunk.singlevalue",
+      "options": {},
+      "dataSources": {
+        "primary": "ds_Hn7sryK6"
+      },
+      "title": "Rejected Enrollments"
+    },
+    "viz_xnFSu5Ft": {
+      "type": "splunk.table",
+      "options": {
+        "count": 20,
+        "dataOverlayMode": "none",
+        "drilldown": "cell",
+        "showRowNumbers": false,
+        "showInternalFields": false
+      },
+      "dataSources": {
+        "primary": "ds_yXyJenVK"
+      },
+      "eventHandlers": [
+        {
+          "type": "drilldown.setToken",
+          "options": {
+            "tokens": [
+              {
+                "token": "ProcessID",
+                "key": "row.ProcessID.value"
+              },
+              {
+                "token": "activityId",
+                "key": "row.activityId.value"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "viz_xcaqsWHQ": {
+      "type": "splunk.table",
+      "options": {
+        "count": 20,
+        "dataOverlayMode": "none",
+        "drilldown": "none",
+        "showRowNumbers": false,
+        "showInternalFields": false
+      },
+      "dataSources": {
+        "primary": "ds_j0wiZooa"
+      },
+      "title": "Failed Enrollment Error Details",
+      "showProgressBar": true
+    }
+  },
+  "dataSources": {
+    "ds_BnAiaZ4X": {
+      "type": "ds.search",
+      "options": {
+        "query": "sourcetype=\"enrollments.csv\"\n| stats sum(count) AS total\n| eval total = tostring(total, \"commas\")",
+        "queryParameters": {
+          "earliest": "0",
+          "sampleRatio": 1
+        }
+      },
+      "name": "Total     Enrollments - Single value search"
+    },
+    "ds_ecnYvlI2": {
+      "type": "ds.search",
+      "options": {
+        "query": "sourcetype=\"enrollments.csv\"\n| search statusCode=\"Enrollment In-Progress\" OR status=\"in-progress\"\n| stats sum(count) AS total\n| eval total = tostring(total, \"commas\")",
+        "queryParameters": {
+          "earliest": "0",
+          "sampleRatio": 1
+        }
+      },
+      "name": "In-progress enrollments - Single value search"
+    },
+    "ds_VAMlGVhI": {
+      "type": "ds.search",
+      "options": {
+        "query": "sourcetype=\"enrollments.csv\"\n| search statusCode=\"Enrollment Completed\" OR status=\"completed\"\n| stats sum(count) AS total\n| eval total = tostring(total, \"commas\")",
+        "queryParameters": {
+          "earliest": "0",
+          "sampleRatio": 1
+        }
+      },
+      "name": "Completed Enrollments - Single value search"
+    },
+    "ds_Rj7NISKK": {
+      "type": "ds.search",
+      "options": {
+        "query": "sourcetype=\"enrollments.csv\"\n| search statusCode=\"Enrollment Failed\" OR statusCode=\"PostOrderProcessingError\" OR statusCode=\"PreOrderProcessingError\"\n| stats sum(count) AS total\n| eval total = tostring(total, \"commas\")",
+        "queryParameters": {
+          "earliest": "0",
+          "sampleRatio": 1
+        }
+      },
+      "name": "Failed Enrollments - Single value search"
+    },
+    "ds_2ULctwcE": {
+      "type": "ds.search",
+      "options": {
+        "query": "sourcetype=\"enrollments.csv\"\n| search status=\"cancelled\" OR statusCode=\"Enrollment Cancelled\"\n| stats sum(count) AS total\n| eval total = tostring(total, \"commas\")",
+        "queryParameters": {
+          "earliest": "0",
+          "sampleRatio": 1
+        }
+      },
+      "name": "Cancelled Enrollments - Single value search"
+    },
+    "ds_Hn7sryK6": {
+      "type": "ds.search",
+      "options": {
+        "query": "sourcetype=\"enrollments.csv\"\n| search status=\"rejected\" OR statusCode=\"Enrollment Rejected\"\n| stats sum(count) AS total\n| eval total = tostring(total, \"commas\")",
+        "queryParameters": {
+          "earliest": "0",
+          "sampleRatio": 1
+        }
+      },
+      "name": "Rejected Enrollments - Single value search"
+    },
+    "ds_yXyJenVK": {
+      "type": "ds.search",
+      "options": {
+        "query": "sourcetype=\"enrollments.csv\"\n| table statusCode activityId subStatusCode EnrollmentID ProcessID",
+        "queryParameters": {
+          "earliest": "0",
+          "sampleRatio": 1
+        }
+      },
+      "name": "Table search"
+    },
+    "ds_j0wiZooa": {
+      "type": "ds.search",
+      "options": {
+        "query": "sourcetype=\"enrollments.csv\" ProcessID=\"$ProcessID$\" activityId=\"$activityId$\"\n| table ProcessID EnrollmentID status statusCode subStatusCode reasonDescription",
+        "queryParameters": {
+          "earliest": "0",
+          "latest": "",
+          "sampleRatio": 1
+        }
+      },
+      "name": "Failed Enrollment Error Details - Table search"
+    }
+  },
+  "defaults": {
+    "dataSources": {
+      "ds.search": {
+        "options": {
+          "queryParameters": {}
+        }
+      }
+    },
+    "visualizations": {
+      "global": {
+        "showProgressBar": true
+      }
+    }
+  },
+  "inputs": {
+    "input_8QFUpoj4": {
+      "type": "input.text",
+      "options": {
+        "token": "ProcessID",
+        "defaultValue": "ORD-10001"
+      },
+      "title": "ProcessID"
+    },
+    "input_F3QD834g": {
+      "type": "input.text",
+      "options": {
+        "token": "activityId",
+        "defaultValue": "ACT-1111"
+      },
+      "title": "activityId"
+    },
+    "input_tpEBicg8": {
+      "type": "input.timerange",
+      "options": {
+        "token": "time",
+        "defaultValue": "-15m,now"
+      },
+      "title": "Time Range"
+    }
+  },
+  "layout": {
+    "options": {
+      "submitButton": false
+    },
+    "globalInputs": [
+      "input_8QFUpoj4",
+      "input_F3QD834g",
+      "input_tpEBicg8"
+    ],
+    "tabs": {
+      "items": [
+        {
+          "layoutId": "layout_1",
+          "label": "New tab"
+        }
+      ]
+    },
+    "layoutDefinitions": {
+      "layout_1": {
+        "type": "grid",
+        "structure": [
+          {
+            "item": "viz_a34sEIN2",
+            "type": "block",
+            "position": {
+              "x": 0,
+              "y": 0,
+              "w": 240,
+              "h": 250
+            }
+          },
+          {
+            "item": "viz_rrUe2YP2",
+            "type": "block",
+            "position": {
+              "x": 240,
+              "y": 0,
+              "w": 240,
+              "h": 250
+            }
+          },
+          {
+            "item": "viz_xSY1kGcP",
+            "type": "block",
+            "position": {
+              "x": 480,
+              "y": 0,
+              "w": 240,
+              "h": 250
+            }
+          },
+          {
+            "item": "viz_enWAkJJS",
+            "type": "block",
+            "position": {
+              "x": 720,
+              "y": 0,
+              "w": 240,
+              "h": 250
+            }
+          },
+          {
+            "item": "viz_SQ1OdId1",
+            "type": "block",
+            "position": {
+              "x": 960,
+              "y": 0,
+              "w": 240,
+              "h": 250
+            }
+          },
+          {
+            "item": "viz_WADK6iDe",
+            "type": "block",
+            "position": {
+              "x": 1200,
+              "y": 0,
+              "w": 240,
+              "h": 250
+            }
+          },
+          {
+            "item": "viz_xnFSu5Ft",
+            "type": "block",
+            "position": {
+              "x": 0,
+              "y": 250,
+              "w": 1440,
+              "h": 250
+            }
+          },
+          {
+            "item": "viz_xcaqsWHQ",
+            "type": "block",
+            "position": {
+              "x": 0,
+              "y": 500,
+              "w": 1440,
+              "h": 250
+            }
+          }
+        ],
+        "options": {
+          "width": 1440,
+          "height": 750
+        }
+      }
+    }
+  },
+  "description": "",
+  "title": "Business Order Processing Dashboard Studio",
+  "applicationProperties": {
+    "hideEdit": false,
+    "hideExport": false
+  }
+}
