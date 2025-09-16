@@ -1,0 +1,248 @@
+{
+  "visualizations": {
+    "viz_flKVge2V": {
+      "type": "splunk.column",
+      "options": {
+        "yAxisAbbreviation": "off",
+        "y2AxisAbbreviation": "off",
+        "showRoundedY2AxisLabels": false,
+        "legendTruncation": "ellipsisMiddle",
+        "showY2MajorGridLines": true
+      },
+      "dataSources": {
+        "primary": "ds_mDhHHhGn"
+      },
+      "title": "Status counts",
+      "eventHandlers": [
+        {
+          "type": "drilldown.setToken",
+          "options": {
+            "tokens": [
+              {
+                "token": "selected_status",
+                "key": "value"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "viz_Uk1ixSvi": {
+      "type": "splunk.singlevalue",
+      "options": {},
+      "dataSources": {
+        "primary": "ds_bwxdjGQe"
+      },
+      "eventHandlers": [
+        {
+          "type": "drilldown.setToken",
+          "options": {
+            "tokens": [
+              {
+                "token": "selected_status",
+                "value": "2xx"
+              }
+            ]
+          }
+        }
+      ],
+      "title": "2xx responses"
+    },
+    "viz_V30uLQap": {
+      "type": "splunk.singlevalue",
+      "options": {},
+      "dataSources": {
+        "primary": "ds_EP7cQ3Sy"
+      },
+      "eventHandlers": [
+        {
+          "type": "drilldown.setToken",
+          "options": {
+            "tokens": [
+              {
+                "token": "selected_status",
+                "value": "4xx"
+              }
+            ]
+          }
+        }
+      ],
+      "title": "4xx responses"
+    },
+    "viz_ZCXZtHIp": {
+      "type": "splunk.singlevalue",
+      "options": {},
+      "dataSources": {
+        "primary": "ds_7KxpV41K"
+      },
+      "eventHandlers": [
+        {
+          "type": "drilldown.setToken",
+          "options": {
+            "tokens": [
+              {
+                "token": "selected_status",
+                "value": "5xx"
+              }
+            ]
+          }
+        }
+      ],
+      "title": "5xx responses"
+    },
+    "viz_x58GfvG5": {
+      "type": "splunk.table",
+      "options": {
+        "showInternalFields": false
+      },
+      "dataSources": {
+        "primary": "ds_ic1cEujj"
+      },
+      "title": "Details",
+      "showProgressBar": true
+    }
+  },
+  "dataSources": {
+    "ds_mDhHHhGn": {
+      "type": "ds.search",
+      "options": {
+        "query": "index=main sourcetype=access_combined earliest=-24h@h latest=now\n| eval sc = tonumber(status)\n| eval status_class = case(sc>=200 AND sc<300,\"2xx\", sc>=400 AND sc<500,\"4xx\", sc>=500 AND sc<600,\"5xx\", 1==1,\"other\")\n| search status_class=\"2xx\" OR status_class=\"4xx\" OR status_class=\"5xx\"\n| stats count by status_class"
+      },
+      "name": "Status counts - Column chart search"
+    },
+    "ds_bwxdjGQe": {
+      "type": "ds.search",
+      "options": {
+        "query": "index=main sourcetype=access_combined earliest=-24h@h latest=now\n| eval sc=tonumber(status)\n| where sc>=200 AND sc<300\n| stats count as \"2xx_count\""
+      },
+      "name": "2xx responses - Single value search"
+    },
+    "ds_EP7cQ3Sy": {
+      "type": "ds.search",
+      "options": {
+        "query": "index=main sourcetype=access_combined earliest=-24h@h latest=now\n| eval sc=tonumber(status)\n| where sc>=400 AND sc<500\n| stats count as \"4xx_count\""
+      },
+      "name": "4xx responses - Single value search"
+    },
+    "ds_7KxpV41K": {
+      "type": "ds.search",
+      "options": {
+        "query": "index=main sourcetype=access_combined earliest=-24h@h latest=now\n| eval sc=tonumber(status)\n| where sc>=500 AND sc<600\n| stats count as \"5xx_count\""
+      },
+      "name": "5xx responses - Single value search"
+    },
+    "ds_ic1cEujj": {
+      "type": "ds.search",
+      "options": {
+        "query": "index=main sourcetype=access_combined earliest=-24h@h latest=now\n| rex field=_raw \"^(?<clientip>\\S+) \\S+ \\S+ \\[(?<time>[^\\]]+)\\] \\\"(?<method>\\S+)\\s+(?<uri>\\S+)(?:\\s+\\S+)?\\\" (?<status>\\d{3}) (?<bytes>\\d+)(?:\\s+\\\"(?<referrer>[^\\\"]*)\\\" \\\"(?<useragent>[^\\\"]*)\\\")?\"\n| eval sc = tonumber(status)\n| eval status_class = case(sc>=200 AND sc<300,\"2xx\", sc>=400 AND sc<500,\"4xx\", sc>=500 AND sc<600,\"5xx\", 1==1,\"other\")\n| where ( status_class = \"$selected_status$\" )\n| table _time, clientip, method, uri, status, bytes, useragent\n| sort - _time"
+      },
+      "name": "Details - Table search"
+    }
+  },
+  "defaults": {
+    "dataSources": {
+      "ds.search": {
+        "options": {
+          "queryParameters": {}
+        }
+      }
+    },
+    "visualizations": {
+      "global": {
+        "showProgressBar": true
+      }
+    }
+  },
+  "inputs": {
+    "input_6DJExKTS": {
+      "type": "input.text",
+      "options": {
+        "token": "selected_status"
+      },
+      "title": "selected_status"
+    }
+  },
+  "layout": {
+    "options": {
+      "submitButton": false
+    },
+    "globalInputs": [
+      "input_6DJExKTS"
+    ],
+    "tabs": {
+      "items": [
+        {
+          "layoutId": "layout_1",
+          "label": "New tab"
+        }
+      ]
+    },
+    "layoutDefinitions": {
+      "layout_1": {
+        "type": "grid",
+        "structure": [
+          {
+            "item": "viz_flKVge2V",
+            "type": "block",
+            "position": {
+              "x": 0,
+              "y": 0,
+              "w": 360,
+              "h": 250
+            }
+          },
+          {
+            "item": "viz_Uk1ixSvi",
+            "type": "block",
+            "position": {
+              "x": 360,
+              "y": 0,
+              "w": 360,
+              "h": 250
+            }
+          },
+          {
+            "item": "viz_V30uLQap",
+            "type": "block",
+            "position": {
+              "x": 720,
+              "y": 0,
+              "w": 360,
+              "h": 250
+            }
+          },
+          {
+            "item": "viz_ZCXZtHIp",
+            "type": "block",
+            "position": {
+              "x": 1080,
+              "y": 0,
+              "w": 360,
+              "h": 250
+            }
+          },
+          {
+            "item": "viz_x58GfvG5",
+            "type": "block",
+            "position": {
+              "x": 0,
+              "y": 250,
+              "w": 1440,
+              "h": 250
+            }
+          }
+        ],
+        "options": {
+          "width": 1440,
+          "height": 500
+        }
+      }
+    }
+  },
+  "description": "",
+  "title": "HTTP Status Dashboard Studio",
+  "applicationProperties": {
+    "hideEdit": false,
+    "hideExport": false
+  }
+}
