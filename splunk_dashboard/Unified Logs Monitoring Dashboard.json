@@ -1,0 +1,482 @@
+{
+  "title": "Unified Logs Monitoring Dashboard Copy",
+  "description": "",
+  "inputs": {
+    "input_SCEUrK3V": {
+      "options": {
+        "defaultValue": "-24h@h,now",
+        "token": "field1"
+      },
+      "title": "Time Range",
+      "type": "input.timerange"
+    }
+  },
+  "defaults": {
+    "dataSources": {
+      "ds.search": {
+        "options": {
+          "queryParameters": {}
+        }
+      }
+    },
+    "visualizations": {
+      "global": {
+        "showProgressBar": true
+      }
+    }
+  },
+  "visualizations": {
+    "viz_0dcoe49m": {
+      "dataSources": {
+        "primary": "ds_FVB0Yyte"
+      },
+      "options": {
+        "legendTruncation": "ellipsisMiddle",
+        "seriesColors": "[\"0x4CAF50\",\"0xF44336\"]",
+        "showRoundedY2AxisLabels": false,
+        "showY2MajorGridLines": true,
+        "y2AxisAbbreviation": "off",
+        "yAxisAbbreviation": "off"
+      },
+      "title": "ACCEPT vs DROP",
+      "type": "splunk.column"
+    },
+    "viz_BdI1aj7G": {
+      "dataSources": {
+        "primary": "ds_MF0xakNw"
+      },
+      "options": {
+        "showInternalFields": false
+      },
+      "title": "Top Source IPs (Blocked)",
+      "type": "splunk.table"
+    },
+    "viz_EhGX27Dq": {
+      "dataSources": {
+        "primary": "ds_wSBHpbFX"
+      },
+      "options": {
+        "legendTruncation": "ellipsisMiddle",
+        "seriesColors": "[\"0xF44336\",\"0xFF9800\"]",
+        "showRoundedY2AxisLabels": false,
+        "showY2MajorGridLines": true,
+        "y2AxisAbbreviation": "off",
+        "yAxisAbbreviation": "off"
+      },
+      "title": "Error Trend",
+      "type": "splunk.area"
+    },
+    "viz_LPqYkcsG": {
+      "options": {
+        "markdown": "## Docker Logs"
+      },
+      "type": "splunk.markdown"
+    },
+    "viz_VjuAIW30": {
+      "dataSources": {
+        "primary": "ds_gMwMicmS"
+      },
+      "options": {},
+      "title": "successful Logons",
+      "type": "splunk.singlevalue"
+    },
+    "viz_cJNg1v8w": {
+      "context": {
+        "convertedColorRange": [
+          {
+            "from": 100,
+            "value": "#3c444d"
+          },
+          {
+            "from": 70,
+            "to": 100,
+            "value": "#3c444d"
+          },
+          {
+            "from": 30,
+            "to": 70,
+            "value": "#F44336"
+          },
+          {
+            "from": 0,
+            "to": 30,
+            "value": "#FFC107"
+          },
+          {
+            "to": 0,
+            "value": "#4CAF50"
+          }
+        ]
+      },
+      "dataSources": {
+        "primary": "ds_deSXbeXv"
+      },
+      "options": {
+        "backgroundColor": "#171d21",
+        "unit": "%"
+      },
+      "title": "Error Rate (%)",
+      "type": "splunk.singlevalue"
+    },
+    "viz_eScJBwTb": {
+      "options": {
+        "markdown": "## Firewall Traffic"
+      },
+      "type": "splunk.markdown"
+    },
+    "viz_mlUZLlgY": {
+      "options": {
+        "markdown": "## Python App"
+      },
+      "type": "splunk.markdown"
+    },
+    "viz_nMhhhZln": {
+      "options": {
+        "markdown": "## Windows Security"
+      },
+      "type": "splunk.markdown"
+    },
+    "viz_oG1irQhk": {
+      "dataSources": {
+        "primary": "ds_t5Dy9fhV"
+      },
+      "options": {
+        "legendTruncation": "ellipsisMiddle",
+        "seriesColors": "[\"0x4CAF50\",\"0xFFC107\",\"0xF44336\"]",
+        "showRoundedY2AxisLabels": false,
+        "showY2MajorGridLines": true,
+        "y2AxisAbbreviation": "off",
+        "yAxisAbbreviation": "off"
+      },
+      "title": "Log Levels Over Time",
+      "type": "splunk.line"
+    },
+    "viz_rJoOPuSg": {
+      "options": {
+        "markdown": "## Nginx Overview"
+      },
+      "type": "splunk.markdown"
+    },
+    "viz_sC3GeeTe": {
+      "dataSources": {
+        "primary": "ds_E7kHn9C5"
+      },
+      "options": {
+        "legendTruncation": "ellipsisMiddle",
+        "showRoundedY2AxisLabels": false,
+        "showY2MajorGridLines": true,
+        "y2AxisAbbreviation": "off",
+        "yAxisAbbreviation": "off"
+      },
+      "title": "Failed Logons (Top 5)",
+      "type": "splunk.bar"
+    },
+    "viz_uHQO39BV": {
+      "dataSources": {
+        "primary": "ds_lkEMFJeE"
+      },
+      "options": {
+        "showInternalFields": false
+      },
+      "title": "Recent Errors",
+      "type": "splunk.table"
+    },
+    "viz_xicuMVKj": {
+      "dataSources": {
+        "primary": "ds_FxaiTqUo"
+      },
+      "options": {
+        "showInternalFields": false
+      },
+      "title": "Latest Errors",
+      "type": "splunk.table"
+    },
+    "viz_xt50evyk": {
+      "dataSources": {
+        "primary": "ds_IDGTF0w7"
+      },
+      "options": {
+        "legendDisplay": "bottom",
+        "legendTruncation": "ellipsisMiddle",
+        "lineWidth": 3,
+        "showRoundedY2AxisLabels": false,
+        "showY2MajorGridLines": true,
+        "y2AxisAbbreviation": "off",
+        "yAxisAbbreviation": "off"
+      },
+      "title": "Requests per Minute",
+      "type": "splunk.line"
+    }
+  },
+  "dataSources": {
+    "ds_E7kHn9C5": {
+      "name": "Failed Logons _Top 5_ - Bar chart search",
+      "options": {
+        "query": "index=main sourcetype=windows_security\n| rex \"Account Name: (?<account>[^,]+)(?:, Source IP: (?<src_ip>\\d+\\.\\d+\\.\\d+\\.\\d+))?\"\n| stats count BY account\n| sort -count\n| head 5",
+        "queryParameters": {
+          "earliest": "-24h"
+        }
+      },
+      "type": "ds.search"
+    },
+    "ds_FVB0Yyte": {
+      "name": "ACCEPT vs DROP - Column chart search",
+      "options": {
+        "query": "index=main sourcetype=firewall\n| rex \"(?<action>(?:ACCEPT|DROP))\"\n| timechart span=5m count BY action",
+        "queryParameters": {
+          "earliest": "-24h"
+        }
+      },
+      "type": "ds.search"
+    },
+    "ds_FxaiTqUo": {
+      "name": "Latest Errors - Table search",
+      "options": {
+        "query": "index=main sourcetype=python_app\n| rex \"^(?<ts>\\S+\\s+\\S+),\\s*(?<level>\\S+)\\s+(?<message>.*)\"\n| search level=\"ERROR\"\n| table _time message\n| sort -_time\n| head 10"
+      },
+      "type": "ds.search"
+    },
+    "ds_IDGTF0w7": {
+      "name": "Requests per Minute - Line chart search",
+      "options": {
+        "query": "index=main sourcetype=nginx_access\n| rex \"(?<clientip>\\d+\\.\\d+\\.\\d+\\.\\d+) - - \\[(?<ts>[^\\]]+)\\] \\\"(?<method>\\S+) (?<uri>\\S+)\\S*\\\" (?<status>\\d{3}) (?<bytes>\\d+)\"\n| timechart span=1m count AS requests",
+        "queryParameters": {
+          "earliest": "-24h"
+        }
+      },
+      "type": "ds.search"
+    },
+    "ds_MF0xakNw": {
+      "name": "Top Source IPs _Blocked_ - Table search",
+      "options": {
+        "query": "index=main sourcetype=firewall\n| rex \"(?<action>DROP)\\s+(?<proto>\\S+)\\s+(?<src_ip>\\d+\\.\\d+\\.\\d+\\.\\d+)\"\n| stats count BY src_ip\n| sort -count\n| head 5"
+      },
+      "type": "ds.search"
+    },
+    "ds_deSXbeXv": {
+      "name": "Error Rate ___ - Single value search",
+      "options": {
+        "query": "index=main sourcetype=nginx_access\n| rex \"\\\"(?<method>\\S+) (?<uri>\\S+)\\S*\\\" (?<status>\\d{3})\"\n| eval is5xx=if(status>=500,1,0)\n| stats count AS total sum(is5xx) AS errors\n| eval error_rate=round((errors/total)*100,2)",
+        "queryParameters": {
+          "earliest": "-24h"
+        }
+      },
+      "type": "ds.search"
+    },
+    "ds_gMwMicmS": {
+      "name": "successful Logons - Single value search",
+      "options": {
+        "query": "index=main sourcetype=windows_security\n| search \"successfully logged on\"\n| stats count AS success_logons"
+      },
+      "type": "ds.search"
+    },
+    "ds_lkEMFJeE": {
+      "name": "Recent Errors - Table search",
+      "options": {
+        "query": "index=main sourcetype=docker_logs\n| rex \"^(?<ts>\\S+)\\s+(?<container>\\S+)\\s+(?<level>\\S+)\\s+(?<message>.*)\"\n| search level=\"ERROR\"\n| table _time container message\n| sort -_time\n| head 10"
+      },
+      "type": "ds.search"
+    },
+    "ds_t5Dy9fhV": {
+      "name": "Log Levels Over Time - Line chart search",
+      "options": {
+        "query": "index=main sourcetype=python_app\n| rex \"^(?<ts>\\S+\\s+\\S+),\\s*(?<level>\\S+)\\s+(?<message>.*)\"\n| timechart span=5m count BY level",
+        "queryParameters": {
+          "earliest": "-24h"
+        }
+      },
+      "type": "ds.search"
+    },
+    "ds_wSBHpbFX": {
+      "name": "Error Trend - Area chart search",
+      "options": {
+        "query": "index=main sourcetype=docker_logs\n| rex \"^(?<ts>\\S+)\\s+(?<container>\\S+)\\s+(?<level>INFO|WARN|ERROR|DEBUG)\\s+(?<message>.*)\"\n| timechart span=5m count(eval(level=\"ERROR\")) AS errors",
+        "queryParameters": {
+          "earliest": "-24h"
+        }
+      },
+      "type": "ds.search"
+    }
+  },
+  "layout": {
+    "globalInputs": [
+      "input_SCEUrK3V"
+    ],
+    "layoutDefinitions": {
+      "layout_1": {
+        "options": {
+          "height": 2501,
+          "width": 1440
+        },
+        "structure": [
+          {
+            "item": "viz_rJoOPuSg",
+            "position": {
+              "h": 250,
+              "w": 1440,
+              "x": 0,
+              "y": 0
+            },
+            "type": "block"
+          },
+          {
+            "item": "viz_xt50evyk",
+            "position": {
+              "h": 250,
+              "w": 720,
+              "x": 0,
+              "y": 250
+            },
+            "type": "block"
+          },
+          {
+            "item": "viz_cJNg1v8w",
+            "position": {
+              "h": 250,
+              "w": 720,
+              "x": 720,
+              "y": 250
+            },
+            "type": "block"
+          },
+          {
+            "item": "viz_nMhhhZln",
+            "position": {
+              "h": 250,
+              "w": 1440,
+              "x": 0,
+              "y": 500
+            },
+            "type": "block"
+          },
+          {
+            "item": "viz_sC3GeeTe",
+            "position": {
+              "h": 251,
+              "w": 720,
+              "x": 0,
+              "y": 750
+            },
+            "type": "block"
+          },
+          {
+            "item": "viz_VjuAIW30",
+            "position": {
+              "h": 251,
+              "w": 720,
+              "x": 720,
+              "y": 750
+            },
+            "type": "block"
+          },
+          {
+            "item": "viz_LPqYkcsG",
+            "position": {
+              "h": 250,
+              "w": 1440,
+              "x": 0,
+              "y": 1001
+            },
+            "type": "block"
+          },
+          {
+            "item": "viz_EhGX27Dq",
+            "position": {
+              "h": 250,
+              "w": 720,
+              "x": 0,
+              "y": 1251
+            },
+            "type": "block"
+          },
+          {
+            "item": "viz_uHQO39BV",
+            "position": {
+              "h": 250,
+              "w": 720,
+              "x": 720,
+              "y": 1251
+            },
+            "type": "block"
+          },
+          {
+            "item": "viz_eScJBwTb",
+            "position": {
+              "h": 250,
+              "w": 1440,
+              "x": 0,
+              "y": 1501
+            },
+            "type": "block"
+          },
+          {
+            "item": "viz_0dcoe49m",
+            "position": {
+              "h": 250,
+              "w": 720,
+              "x": 0,
+              "y": 1751
+            },
+            "type": "block"
+          },
+          {
+            "item": "viz_BdI1aj7G",
+            "position": {
+              "h": 250,
+              "w": 720,
+              "x": 720,
+              "y": 1751
+            },
+            "type": "block"
+          },
+          {
+            "item": "viz_mlUZLlgY",
+            "position": {
+              "h": 250,
+              "w": 1440,
+              "x": 0,
+              "y": 2001
+            },
+            "type": "block"
+          },
+          {
+            "item": "viz_oG1irQhk",
+            "position": {
+              "h": 250,
+              "w": 720,
+              "x": 0,
+              "y": 2251
+            },
+            "type": "block"
+          },
+          {
+            "item": "viz_xicuMVKj",
+            "position": {
+              "h": 250,
+              "w": 720,
+              "x": 720,
+              "y": 2251
+            },
+            "type": "block"
+          }
+        ],
+        "type": "grid"
+      }
+    },
+    "options": {
+      "submitButton": false
+    },
+    "tabs": {
+      "items": [
+        {
+          "label": "New tab",
+          "layoutId": "layout_1"
+        }
+      ]
+    }
+  },
+  "applicationProperties": {
+    "hideEdit": false,
+    "hideExport": false
+  }
+}
