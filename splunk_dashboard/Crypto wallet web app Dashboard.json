@@ -1,844 +1,858 @@
 {
-  "visualizations": {
-    "viz_yGJVnk2q": {
-      "type": "splunk.singlevalue",
-      "options": {},
-      "dataSources": {
-        "primary": "ds_lfl48DYI"
-      },
-      "eventHandlers": [
-        {
-          "type": "drilldown.setToken",
-          "options": {
-            "tokens": [
-              {
-                "token": "details",
-                "value": "events"
-              }
-            ]
-          }
+    "title": "Crypto wallet web app Dashboard Studio",
+    "description": "",
+    "inputs": {
+        "input_rF7T4Q8h": {
+            "options": {
+                "defaultValue": "0,",
+                "token": "field1"
+            },
+            "title": "Time",
+            "type": "input.timerange"
         }
-      ],
-      "title": "Total events"
     },
-    "viz_z2TJXS2F": {
-      "type": "splunk.singlevalue",
-      "options": {},
-      "dataSources": {
-        "primary": "ds_JrkV8aap"
-      },
-      "eventHandlers": [
-        {
-          "type": "drilldown.setToken",
-          "options": {
-            "tokens": [
-              {
-                "token": "details",
-                "value": "\"Deposited\" OR \"Withdrew\" OR \"Transferred\""
-              }
-            ]
-          }
+    "defaults": {
+        "dataSources": {
+            "ds.search": {
+                "options": {
+                    "queryParameters": {}
+                }
+            }
+        },
+        "visualizations": {
+            "global": {
+                "showProgressBar": true
+            }
         }
-      ],
-      "title": "Total Transactions"
-    },
-    "viz_8TduTzZV": {
-      "type": "splunk.singlevalue",
-      "options": {},
-      "dataSources": {
-        "primary": "ds_d0yX5MOA"
-      },
-      "eventHandlers": [
-        {
-          "type": "drilldown.setToken",
-          "options": {
-            "tokens": [
-              {
-                "token": "details",
-                "value": "wallets_created"
-              }
-            ]
-          }
-        }
-      ],
-      "title": "Total wallets created",
-      "showProgressBar": true
-    },
-    "viz_zQQHFg6T": {
-      "type": "splunk.singlevalue",
-      "options": {},
-      "dataSources": {
-        "primary": "ds_r9lDnRdv"
-      },
-      "eventHandlers": [
-        {
-          "type": "drilldown.setToken",
-          "options": {
-            "tokens": [
-              {
-                "token": "details",
-                "value": "transfers"
-              }
-            ]
-          }
-        }
-      ],
-      "title": "Total Transfers",
-      "showProgressBar": true
-    },
-    "viz_sIY4wcEP": {
-      "type": "splunk.singlevalue",
-      "options": {},
-      "dataSources": {
-        "primary": "ds_fTnpVWqa"
-      },
-      "eventHandlers": [
-        {
-          "type": "drilldown.setToken",
-          "options": {
-            "tokens": [
-              {
-                "token": "details",
-                "value": "deposits"
-              }
-            ]
-          }
-        }
-      ],
-      "title": "Total Deposits"
-    },
-    "viz_TVPnpOKZ": {
-      "type": "splunk.singlevalue",
-      "options": {},
-      "dataSources": {
-        "primary": "ds_ZXPEYgGH"
-      },
-      "eventHandlers": [
-        {
-          "type": "drilldown.setToken",
-          "options": {
-            "tokens": [
-              {
-                "token": "details",
-                "value": "withdrawals"
-              }
-            ]
-          }
-        }
-      ],
-      "title": "Total Withdrawals"
-    },
-    "viz_GMStun6e": {
-      "type": "splunk.singlevalue",
-      "options": {},
-      "dataSources": {
-        "primary": "ds_i3RxYZhk"
-      },
-      "eventHandlers": [
-        {
-          "type": "drilldown.setToken",
-          "options": {
-            "tokens": [
-              {
-                "token": "details",
-                "value": "errors"
-              }
-            ]
-          }
-        }
-      ],
-      "title": "Failed operations"
-    },
-    "viz_lBRGLbEy": {
-      "type": "splunk.singlevalue",
-      "options": {},
-      "dataSources": {
-        "primary": "ds_ZttZqLbw"
-      },
-      "eventHandlers": [
-        {
-          "type": "drilldown.setToken",
-          "options": {
-            "tokens": [
-              {
-                "token": "details",
-                "value": "wallets_deleted"
-              }
-            ]
-          }
-        }
-      ],
-      "title": "Total Wallets Deleted",
-      "showProgressBar": true
-    },
-    "viz_K16UIR9V": {
-      "type": "splunk.singlevalue",
-      "options": {
-        "unit": "%",
-        "majorColor": "#171d21"
-      },
-      "context": {
-        "convertedColorRange": [
-          {
-            "from": 100,
-            "value": "#dc4e41"
-          },
-          {
-            "from": 70,
-            "to": 100,
-            "value": "#f1813f"
-          },
-          {
-            "from": 30,
-            "to": 70,
-            "value": "#f8be34"
-          },
-          {
-            "from": 0,
-            "to": 30,
-            "value": "#0877a6"
-          },
-          {
-            "to": 0,
-            "value": "#53a051"
-          }
-        ]
-      },
-      "dataSources": {
-        "primary": "ds_5LcoHdVR"
-      },
-      "eventHandlers": [
-        {
-          "type": "drilldown.setToken",
-          "options": {
-            "tokens": [
-              {
-                "token": "details",
-                "value": "errors"
-              }
-            ]
-          }
-        }
-      ],
-      "title": "Error %"
-    },
-    "viz_K13PFKLk": {
-      "type": "splunk.singlevalue",
-      "options": {},
-      "dataSources": {
-        "primary": "ds_a2lIJRzs"
-      },
-      "eventHandlers": [
-        {
-          "type": "drilldown.setToken",
-          "options": {
-            "tokens": [
-              {
-                "token": "details",
-                "value": "errors"
-              }
-            ]
-          }
-        }
-      ],
-      "title": "Total Errors"
-    },
-    "viz_1As9IHHm": {
-      "type": "splunk.table",
-      "options": {
-        "count": 50,
-        "drilldown": "none",
-        "showInternalFields": false
-      },
-      "dataSources": {
-        "primary": "ds_DL2yiAe9"
-      },
-      "title": "Details for $details$"
-    },
-    "viz_GzpCBpbu": {
-      "type": "splunk.line",
-      "options": {
-        "yAxisAbbreviation": "off",
-        "y2AxisAbbreviation": "off",
-        "showRoundedY2AxisLabels": false,
-        "legendTruncation": "ellipsisMiddle",
-        "showY2MajorGridLines": true
-      },
-      "dataSources": {
-        "primary": "ds_jW0Hp7xL"
-      },
-      "title": "event rate by hour"
-    },
-    "viz_hjEkvWs2": {
-      "type": "splunk.column",
-      "options": {
-        "yAxisAbbreviation": "off",
-        "y2AxisAbbreviation": "off",
-        "showRoundedY2AxisLabels": false,
-        "legendTruncation": "ellipsisMiddle",
-        "showY2MajorGridLines": true,
-        "xAxisLabelRotation": 0,
-        "stackMode": "stacked"
-      },
-      "dataSources": {
-        "primary": "ds_gXb2lBlh"
-      },
-      "title": "Number of transactions by currency",
-      "showProgressBar": true
-    },
-    "viz_54vPhRXi": {
-      "type": "splunk.column",
-      "options": {
-        "yAxisAbbreviation": "off",
-        "y2AxisAbbreviation": "off",
-        "showRoundedY2AxisLabels": false,
-        "legendTruncation": "ellipsisMiddle",
-        "showY2MajorGridLines": true
-      },
-      "dataSources": {
-        "primary": "ds_n61v3r7d"
-      },
-      "title": "Number of deposits per currency",
-      "showProgressBar": true
-    },
-    "viz_ZH7JGCC6": {
-      "type": "splunk.column",
-      "options": {
-        "yAxisAbbreviation": "off",
-        "y2AxisAbbreviation": "off",
-        "showRoundedY2AxisLabels": false,
-        "legendTruncation": "ellipsisMiddle",
-        "showY2MajorGridLines": true
-      },
-      "dataSources": {
-        "primary": "ds_ZmWZ6EWE"
-      },
-      "title": "Number of withdrawals per currency",
-      "showProgressBar": true
-    },
-    "viz_XE8V7avu": {
-      "type": "splunk.column",
-      "options": {
-        "yAxisAbbreviation": "off",
-        "y2AxisAbbreviation": "off",
-        "showRoundedY2AxisLabels": false,
-        "legendTruncation": "ellipsisMiddle",
-        "showY2MajorGridLines": true
-      },
-      "dataSources": {
-        "primary": "ds_TP6mLUER"
-      },
-      "title": "Outgoing transfers per currency",
-      "showProgressBar": true
-    },
-    "viz_LQb6dE4m": {
-      "type": "splunk.map",
-      "options": {
-        "layers": [
-          {
-            "type": "bubble",
-            "latitude": "> primary | seriesByName('latitude')",
-            "longitude": "> primary | seriesByName('longitude')",
-            "bubbleSize": "> primary | frameWithoutSeriesNames('_geo_bounds_east', '_geo_bounds_west', '_geo_bounds_north', '_geo_bounds_south', 'latitude', 'longitude') | frameBySeriesTypes('number')",
-            "seriesColors": [
-              "#7b56db",
-              "#cb2196",
-              "#008c80",
-              "#9d6300",
-              "#f6540b",
-              "#ff969e",
-              "#99b100",
-              "#f4b649",
-              "#ae8cff",
-              "#8cbcff",
-              "#813193",
-              "#0051b5",
-              "#009ceb",
-              "#00cdaf",
-              "#00490a",
-              "#dd9900",
-              "#465d00",
-              "#ff677b",
-              "#ff6ace",
-              "#00689d"
-            ]
-          }
-        ]
-      },
-      "dataSources": {
-        "primary": "ds_YEZccnRc"
-      },
-      "title": "Wallet Transfer Source Map",
-      "showProgressBar": true
-    },
-    "viz_1T0SgQ0G": {
-      "type": "splunk.table",
-      "options": {
-        "count": 100,
-        "dataOverlayMode": "none",
-        "drilldown": "none",
-        "showRowNumbers": false,
-        "showInternalFields": false
-      },
-      "dataSources": {
-        "primary": "ds_0hOxqJ58"
-      },
-      "title": "Deposits / Withdrawals summary"
-    }
-  },
-  "dataSources": {
-    "ds_lfl48DYI": {
-      "type": "ds.search",
-      "options": {
-        "query": "index=otel host=\"cryptowallet-84d755cfdb-qvb5x\" earliest=-24h latest=now\n| stats count AS \"Total Events\"",
-        "queryParameters": {
-          "earliest": "-24h@h",
-          "latest": "now",
-          "sampleRatio": 1
-        }
-      },
-      "name": "Total events - Single value search"
-    },
-    "ds_JrkV8aap": {
-      "type": "ds.search",
-      "options": {
-        "query": "index=otel host=\"cryptowallet-84d755cfdb-qvb5x\" earliest=-24h latest=now \"Deposited\" OR \"Withdrew\" OR \"Transferred\"\n| stats count as \"Total Transactions\"",
-        "queryParameters": {
-          "earliest": "-24h@h",
-          "latest": "now",
-          "sampleRatio": 1
-        }
-      },
-      "name": "Total Transactions - Single value search"
-    },
-    "ds_d0yX5MOA": {
-      "type": "ds.search",
-      "options": {
-        "query": "index=otel host=\"cryptowallet-84d755cfdb-qvb5x\" earliest=-24h latest=now \"Created wallet\"\n| stats count as \"Total Wallets Created\"",
-        "queryParameters": {
-          "earliest": "-24h@h",
-          "latest": "now",
-          "sampleRatio": 1
-        }
-      },
-      "name": "Total wallets created - Single value search"
-    },
-    "ds_r9lDnRdv": {
-      "type": "ds.search",
-      "options": {
-        "query": "index=otel host=\"cryptowallet-84d755cfdb-qvb5x\" earliest=-24h latest=now \"Transferred\"\n| stats count AS \"Total Transfers\"",
-        "queryParameters": {
-          "earliest": "-24h@h",
-          "latest": "now",
-          "sampleRatio": 1
-        }
-      },
-      "name": "Total Transfers - Single value search"
-    },
-    "ds_fTnpVWqa": {
-      "type": "ds.search",
-      "options": {
-        "query": "index=otel host=\"cryptowallet-84d755cfdb-qvb5x\" earliest=-24h latest=now\n| where like(_raw, \"Deposited%\")\n| stats count as total_deposits",
-        "queryParameters": {
-          "earliest": "-24h@h",
-          "latest": "now",
-          "sampleRatio": 1
-        }
-      },
-      "name": "Total Deposits - Single value search"
-    },
-    "ds_ZXPEYgGH": {
-      "type": "ds.search",
-      "options": {
-        "query": "index=otel host=\"cryptowallet-84d755cfdb-qvb5x\" earliest=-24h latest=now\n| where like(_raw, \"Withdrew%\")\n| stats count as total_withdrawals",
-        "queryParameters": {
-          "earliest": "-24h@h",
-          "latest": "now",
-          "sampleRatio": 1
-        }
-      },
-      "name": "Total Withdrawals - Single value search"
-    },
-    "ds_i3RxYZhk": {
-      "type": "ds.search",
-      "options": {
-        "query": "index=otel host=\"cryptowallet-84d755cfdb-qvb5x\" earliest=-24h latest=now \"not found\"\n| stats count AS \"Failed Operations\"",
-        "queryParameters": {
-          "earliest": "-24h@h",
-          "latest": "now",
-          "sampleRatio": 1
-        }
-      },
-      "name": "Failed operations - Single value search"
-    },
-    "ds_ZttZqLbw": {
-      "type": "ds.search",
-      "options": {
-        "query": "index=otel host=\"cryptowallet-84d755cfdb-qvb5x\" earliest=-24h latest=now \"Deleted wallet\"\n| stats count as \"Total Wallets Deleted\"",
-        "queryParameters": {
-          "earliest": "-24h@h",
-          "latest": "now",
-          "sampleRatio": 1
-        }
-      },
-      "name": "Total Wallets Deleted - Single value search"
-    },
-    "ds_5LcoHdVR": {
-      "type": "ds.search",
-      "options": {
-        "query": "index=otel host=\"cryptowallet-84d755cfdb-qvb5x\" earliest=-24h latest=now\n| eval is_error=if(like(_raw,\"%not found%\"),1,0)\n| stats count as total_events sum(is_error) as total_errors\n| eval error_percentage = round((total_errors/total_events)*100,2)\n| fields error_percentage",
-        "queryParameters": {
-          "earliest": "-24h@h",
-          "latest": "now",
-          "sampleRatio": 1
-        }
-      },
-      "name": "Error _ - Single value search"
-    },
-    "ds_a2lIJRzs": {
-      "type": "ds.search",
-      "options": {
-        "query": "index=otel host=\"cryptowallet-84d755cfdb-qvb5x\" earliest=-24h latest=now \"not found\"\n| stats count as \"Total Errors\"",
-        "queryParameters": {
-          "earliest": "-24h@h",
-          "latest": "now",
-          "sampleRatio": 1
-        }
-      },
-      "name": "Total Errors - Single value search"
-    },
-    "ds_DL2yiAe9": {
-      "type": "ds.search",
-      "options": {
-        "query": "index=otel host=\"cryptowallet-84d755cfdb-qvb5x\" earliest=-24h latest=now\n            | eval category=case(\n            match(_raw,\"Created wallet\"),\"wallets_created\",\n            match(_raw,\"Deleted wallet\"),\"wallets_deleted\",\n            match(_raw,\"Deposited\"),\"deposits\",\n            match(_raw,\"Withdrew\"),\"withdrawals\",\n            match(_raw,\"Transferred\"),\"transfers\",\n            like(_raw,\"%not found%\"),\"errors\",\n            true(),\"events\")\n            | search category=$details$\n            | table _time _raw",
-        "queryParameters": {
-          "earliest": "-24h@h",
-          "latest": "now",
-          "sampleRatio": 1
-        }
-      },
-      "name": "Details for _details_ - Table search"
-    },
-    "ds_jW0Hp7xL": {
-      "type": "ds.search",
-      "options": {
-        "query": "index=otel host=\"cryptowallet-84d755cfdb-qvb5x\" earliest=-24h latest=now\n| timechart span=1h count AS \"Event Count\"",
-        "queryParameters": {
-          "earliest": "-24h@h",
-          "latest": "now",
-          "sampleRatio": 1
-        }
-      },
-      "name": "event rate by hour - Line chart search"
-    },
-    "ds_gXb2lBlh": {
-      "type": "ds.search",
-      "options": {
-        "query": "index=otel host=\"cryptowallet-84d755cfdb-qvb5x\" earliest=-24h latest=now\n\"Deposited\" OR \"Withdrew\" OR \"Transferred\"\n| rex field=_raw \"(?<currency>BTC|GBP|USD)\"\n| stats count by currency",
-        "queryParameters": {
-          "earliest": "-24h@h",
-          "latest": "now",
-          "sampleRatio": 1
-        }
-      },
-      "name": "Number of transactions by currency - Column chart search"
-    },
-    "ds_n61v3r7d": {
-      "type": "ds.search",
-      "options": {
-        "query": "index=otel host=\"cryptowallet-84d755cfdb-qvb5x\" earliest=-24h latest=now \"Deposited\"\n| rex field=_raw \"(?<currency>BTC|GBP|USD)\"\n| stats count by currency",
-        "queryParameters": {
-          "earliest": "-24h@h",
-          "latest": "now",
-          "sampleRatio": 1
-        }
-      },
-      "name": "Number of deposits per currency - Column chart search"
-    },
-    "ds_ZmWZ6EWE": {
-      "type": "ds.search",
-      "options": {
-        "query": "index=otel host=\"cryptowallet-84d755cfdb-qvb5x\" earliest=-24h latest=now \"Withdrew\"\n| rex field=_raw \"(?<currency>BTC|GBP|USD)\"\n| stats count by currency",
-        "queryParameters": {
-          "earliest": "-24h@h",
-          "latest": "now",
-          "sampleRatio": 1
-        }
-      },
-      "name": "Number of withdrawals per currency - Column chart search"
-    },
-    "ds_TP6mLUER": {
-      "type": "ds.search",
-      "options": {
-        "query": "index=otel host=\"cryptowallet-84d755cfdb-qvb5x\" earliest=-24h latest=now \"Transferred\"\n| rex field=_raw \"(?<currency>BTC|GBP|USD)\"\n| stats count by currency",
-        "queryParameters": {
-          "earliest": "-24h@h",
-          "latest": "now",
-          "sampleRatio": 1
-        }
-      },
-      "name": "Outgoing transfers per currency - Column chart search"
-    },
-    "ds_YEZccnRc": {
-      "type": "ds.search",
-      "options": {
-        "query": "index=otel host=\"cryptowallet-84d755cfdb-qvb5x\" earliest=-24h latest=now \"Transferred\"\n| rex field=_raw \"Transferred\\s+(?<amount>\\d+)\\s+(?<currency>[A-Z]{3})\\s+from wallet\\s+(?<from_wallet>[0-9a-f-]+)\\s+at location\\s+(?<from_location>[^,]+),\\s+latitude\\s+(?<from_lat>[-\\d\\.]+),\\s+longitude\\s+(?<from_lon>[-\\d\\.]+)\\s+to\\s+(?<to_amount>\\d+)\\s+(?<to_currency>[A-Z]{3})\\s+in wallet\\s+(?<to_wallet>[0-9a-f-]+)\\s+at location\\s+(?<to_location>[^,]+),\\s+latitude\\s+(?<to_lat>[-\\d\\.]+),\\s+longitude\\s+(?<to_lon>[-\\d\\.]+)\"\n| eval amount=tonumber(amount), to_amount=tonumber(to_amount)\n| geostats latfield=from_lat longfield=from_lon count by currency",
-        "queryParameters": {
-          "earliest": "-24h@h",
-          "latest": "now",
-          "sampleRatio": 1
-        }
-      },
-      "name": "Wallet Transfer Source Map - Cluster map search"
-    },
-    "ds_0hOxqJ58": {
-      "type": "ds.search",
-      "options": {
-        "query": "index=otel host=\"cryptowallet-84d755cfdb-qvb5x\" earliest=-24h latest=now (Deposited OR Withdrew)\n| rex field=_raw \"(?<action>Deposited|Withdrew)\\s+(?<amount>\\d+)\\s+(?<currency>[A-Z]{3})\\s+(?:to|from)\\s+wallet\\s+(?<wallet>[0-9a-f-]+)\\s+at location\\s+(?<location>[^,]+)\\s*,\\s*latitude\\s+(?<lat>[-\\d\\.]+),\\s*longitude\\s+(?<lon>[-\\d\\.]+)\"\n| eval amount=tonumber(amount)\n| stats count sum(amount) AS total_amount by action currency",
-        "queryParameters": {
-          "earliest": "-24h@h",
-          "latest": "now",
-          "sampleRatio": 1
-        }
-      },
-      "name": "Deposits _ Withdrawals summary - Table search"
-    }
-  },
-  "defaults": {
-    "dataSources": {
-      "ds.search": {
-        "options": {
-          "queryParameters": {}
-        }
-      }
     },
     "visualizations": {
-      "global": {
-        "showProgressBar": true
-      }
-    }
-  },
-  "inputs": {
-    "input_mn48gXs3": {
-      "type": "input.timerange",
-      "options": {
-        "token": "field1",
-        "defaultValue": "0,"
-      },
-      "title": "Time"
-    }
-  },
-  "layout": {
-    "options": {
-      "submitButton": false
-    },
-    "globalInputs": [
-      "input_mn48gXs3"
-    ],
-    "tabs": {
-      "items": [
-        {
-          "layoutId": "layout_1",
-          "label": "New tab"
+        "viz_1wVQYv6Z": {
+            "dataSources": {
+                "primary": "ds_CGEBw9x3"
+            },
+            "options": {
+                "legendTruncation": "ellipsisMiddle",
+                "showRoundedY2AxisLabels": false,
+                "showY2MajorGridLines": true,
+                "y2AxisAbbreviation": "off",
+                "yAxisAbbreviation": "off"
+            },
+            "showProgressBar": true,
+            "title": "Number of withdrawals per currency",
+            "type": "splunk.column"
+        },
+        "viz_Gydv37q6": {
+            "dataSources": {
+                "primary": "ds_kFX1woO8"
+            },
+            "options": {
+                "legendTruncation": "ellipsisMiddle",
+                "showRoundedY2AxisLabels": false,
+                "showY2MajorGridLines": true,
+                "y2AxisAbbreviation": "off",
+                "yAxisAbbreviation": "off"
+            },
+            "showProgressBar": true,
+            "title": "event rate by hour",
+            "type": "splunk.line"
+        },
+        "viz_J2sAuTkU": {
+            "dataSources": {
+                "primary": "ds_ErzUBhKL"
+            },
+            "options": {
+                "legendTruncation": "ellipsisMiddle",
+                "showRoundedY2AxisLabels": false,
+                "showY2MajorGridLines": true,
+                "y2AxisAbbreviation": "off",
+                "yAxisAbbreviation": "off"
+            },
+            "showProgressBar": true,
+            "title": "Outgoing transfers per currency",
+            "type": "splunk.column"
+        },
+        "viz_KMZeHMwg": {
+            "dataSources": {
+                "primary": "ds_7wey6OK1"
+            },
+            "eventHandlers": [
+                {
+                    "options": {
+                        "tokens": [
+                            {
+                                "token": "details",
+                                "value": "events"
+                            }
+                        ]
+                    },
+                    "type": "drilldown.setToken"
+                }
+            ],
+            "options": {},
+            "showProgressBar": true,
+            "title": "Total events",
+            "type": "splunk.singlevalue"
+        },
+        "viz_MCuFKqsy": {
+            "dataSources": {
+                "primary": "ds_tsEKvZJ5"
+            },
+            "eventHandlers": [
+                {
+                    "options": {
+                        "tokens": [
+                            {
+                                "token": "details",
+                                "value": "wallets_deleted"
+                            }
+                        ]
+                    },
+                    "type": "drilldown.setToken"
+                }
+            ],
+            "options": {},
+            "showProgressBar": true,
+            "title": "Total Wallets Deleted",
+            "type": "splunk.singlevalue"
+        },
+        "viz_MF8P0IEt": {
+            "dataSources": {
+                "primary": "ds_NyeArIe8"
+            },
+            "eventHandlers": [
+                {
+                    "options": {
+                        "tokens": [
+                            {
+                                "token": "details",
+                                "value": "withdrawals"
+                            }
+                        ]
+                    },
+                    "type": "drilldown.setToken"
+                }
+            ],
+            "options": {},
+            "showProgressBar": true,
+            "title": "Total Withdrawals",
+            "type": "splunk.singlevalue"
+        },
+        "viz_VLv14b5r": {
+            "dataSources": {
+                "primary": "ds_hVbAszmD"
+            },
+            "options": {
+                "legendTruncation": "ellipsisMiddle",
+                "showRoundedY2AxisLabels": false,
+                "showY2MajorGridLines": true,
+                "y2AxisAbbreviation": "off",
+                "yAxisAbbreviation": "off"
+            },
+            "showProgressBar": true,
+            "title": "Number of deposits per currency",
+            "type": "splunk.column"
+        },
+        "viz_ViFqNBhZ": {
+            "dataSources": {
+                "primary": "ds_tmKQqMNi"
+            },
+            "options": {
+                "count": 50,
+                "drilldown": "none",
+                "showInternalFields": false
+            },
+            "showProgressBar": true,
+            "title": "Details for $details$",
+            "type": "splunk.table"
+        },
+        "viz_X6VRN3Kt": {
+            "dataSources": {
+                "primary": "ds_QOYDvPNn"
+            },
+            "eventHandlers": [
+                {
+                    "options": {
+                        "tokens": [
+                            {
+                                "token": "details",
+                                "value": "errors"
+                            }
+                        ]
+                    },
+                    "type": "drilldown.setToken"
+                }
+            ],
+            "options": {},
+            "showProgressBar": true,
+            "title": "Total Errors",
+            "type": "splunk.singlevalue"
+        },
+        "viz_gVi4Ml0F": {
+            "dataSources": {
+                "primary": "ds_t6Wu0hJa"
+            },
+            "eventHandlers": [
+                {
+                    "options": {
+                        "tokens": [
+                            {
+                                "token": "details",
+                                "value": "\"Deposited\" OR \"Withdrew\" OR \"Transferred\""
+                            }
+                        ]
+                    },
+                    "type": "drilldown.setToken"
+                }
+            ],
+            "options": {},
+            "showProgressBar": true,
+            "title": "Total Transactions",
+            "type": "splunk.singlevalue"
+        },
+        "viz_mU7jITrX": {
+            "dataSources": {
+                "primary": "ds_m9tzocR9"
+            },
+            "options": {
+                "legendTruncation": "ellipsisMiddle",
+                "showRoundedY2AxisLabels": false,
+                "showY2MajorGridLines": true,
+                "stackMode": "stacked",
+                "xAxisLabelRotation": 0,
+                "y2AxisAbbreviation": "off",
+                "yAxisAbbreviation": "off"
+            },
+            "showProgressBar": true,
+            "title": "Number of transactions by currency",
+            "type": "splunk.column"
+        },
+        "viz_ng5D4CcM": {
+            "dataSources": {
+                "primary": "ds_738zvhR3"
+            },
+            "eventHandlers": [
+                {
+                    "options": {
+                        "tokens": [
+                            {
+                                "token": "details",
+                                "value": "deposits"
+                            }
+                        ]
+                    },
+                    "type": "drilldown.setToken"
+                }
+            ],
+            "options": {},
+            "showProgressBar": true,
+            "title": "Total Deposits",
+            "type": "splunk.singlevalue"
+        },
+        "viz_qIFGbnSv": {
+            "dataSources": {
+                "primary": "ds_66J9cr2N"
+            },
+            "eventHandlers": [
+                {
+                    "options": {
+                        "tokens": [
+                            {
+                                "token": "details",
+                                "value": "wallets_created"
+                            }
+                        ]
+                    },
+                    "type": "drilldown.setToken"
+                }
+            ],
+            "options": {},
+            "showProgressBar": true,
+            "title": "Total wallets created",
+            "type": "splunk.singlevalue"
+        },
+        "viz_sFqxU2qF": {
+            "dataSources": {
+                "primary": "ds_gfq5Gkdj"
+            },
+            "options": {
+                "count": 100,
+                "dataOverlayMode": "none",
+                "drilldown": "none",
+                "showInternalFields": false,
+                "showRowNumbers": false
+            },
+            "showProgressBar": true,
+            "title": "Deposits / Withdrawals summary",
+            "type": "splunk.table"
+        },
+        "viz_uKGmhTgx": {
+            "dataSources": {
+                "primary": "ds_TFtiWevO"
+            },
+            "options": {
+                "layers": [
+                    {
+                        "bubbleSize": "> primary | frameWithoutSeriesNames('_geo_bounds_east', '_geo_bounds_west', '_geo_bounds_north', '_geo_bounds_south', 'latitude', 'longitude') | frameBySeriesTypes('number')",
+                        "latitude": "> primary | seriesByName('latitude')",
+                        "longitude": "> primary | seriesByName('longitude')",
+                        "seriesColors": [
+                            "#7b56db",
+                            "#cb2196",
+                            "#008c80",
+                            "#9d6300",
+                            "#f6540b",
+                            "#ff969e",
+                            "#99b100",
+                            "#f4b649",
+                            "#ae8cff",
+                            "#8cbcff",
+                            "#813193",
+                            "#0051b5",
+                            "#009ceb",
+                            "#00cdaf",
+                            "#00490a",
+                            "#dd9900",
+                            "#465d00",
+                            "#ff677b",
+                            "#ff6ace",
+                            "#00689d"
+                        ],
+                        "type": "bubble"
+                    }
+                ]
+            },
+            "showProgressBar": true,
+            "title": "Wallet Transfer Source Map",
+            "type": "splunk.map"
+        },
+        "viz_weryh2Ve": {
+            "dataSources": {
+                "primary": "ds_jyMcnZDv"
+            },
+            "eventHandlers": [
+                {
+                    "options": {
+                        "tokens": [
+                            {
+                                "token": "details",
+                                "value": "transfers"
+                            }
+                        ]
+                    },
+                    "type": "drilldown.setToken"
+                }
+            ],
+            "options": {},
+            "showProgressBar": true,
+            "title": "Total Transfers",
+            "type": "splunk.singlevalue"
+        },
+        "viz_y7ZtSWSx": {
+            "dataSources": {
+                "primary": "ds_8w1Qjcr8"
+            },
+            "eventHandlers": [
+                {
+                    "options": {
+                        "tokens": [
+                            {
+                                "token": "details",
+                                "value": "errors"
+                            }
+                        ]
+                    },
+                    "type": "drilldown.setToken"
+                }
+            ],
+            "options": {},
+            "showProgressBar": true,
+            "title": "Failed operations",
+            "type": "splunk.singlevalue"
+        },
+        "viz_yIkgupLB": {
+            "context": {
+                "convertedColorRange": [
+                    {
+                        "from": 100,
+                        "value": "#dc4e41"
+                    },
+                    {
+                        "from": 70,
+                        "to": 100,
+                        "value": "#f1813f"
+                    },
+                    {
+                        "from": 30,
+                        "to": 70,
+                        "value": "#f8be34"
+                    },
+                    {
+                        "from": 0,
+                        "to": 30,
+                        "value": "#0877a6"
+                    },
+                    {
+                        "to": 0,
+                        "value": "#53a051"
+                    }
+                ]
+            },
+            "dataSources": {
+                "primary": "ds_mVdu4ThQ"
+            },
+            "eventHandlers": [
+                {
+                    "options": {
+                        "tokens": [
+                            {
+                                "token": "details",
+                                "value": "errors"
+                            }
+                        ]
+                    },
+                    "type": "drilldown.setToken"
+                }
+            ],
+            "options": {
+                "majorColor": "#171d21",
+                "unit": "%"
+            },
+            "showProgressBar": true,
+            "title": "Error %",
+            "type": "splunk.singlevalue"
         }
-      ]
     },
-    "layoutDefinitions": {
-      "layout_1": {
-        "type": "grid",
-        "structure": [
-          {
-            "item": "viz_yGJVnk2q",
-            "type": "block",
-            "position": {
-              "x": 0,
-              "y": 0,
-              "w": 240,
-              "h": 250
-            }
-          },
-          {
-            "item": "viz_z2TJXS2F",
-            "type": "block",
-            "position": {
-              "x": 240,
-              "y": 0,
-              "w": 240,
-              "h": 250
-            }
-          },
-          {
-            "item": "viz_8TduTzZV",
-            "type": "block",
-            "position": {
-              "x": 480,
-              "y": 0,
-              "w": 240,
-              "h": 250
-            }
-          },
-          {
-            "item": "viz_zQQHFg6T",
-            "type": "block",
-            "position": {
-              "x": 720,
-              "y": 0,
-              "w": 240,
-              "h": 250
-            }
-          },
-          {
-            "item": "viz_sIY4wcEP",
-            "type": "block",
-            "position": {
-              "x": 960,
-              "y": 0,
-              "w": 240,
-              "h": 250
-            }
-          },
-          {
-            "item": "viz_TVPnpOKZ",
-            "type": "block",
-            "position": {
-              "x": 1200,
-              "y": 0,
-              "w": 240,
-              "h": 250
-            }
-          },
-          {
-            "item": "viz_GMStun6e",
-            "type": "block",
-            "position": {
-              "x": 0,
-              "y": 250,
-              "w": 360,
-              "h": 250
-            }
-          },
-          {
-            "item": "viz_lBRGLbEy",
-            "type": "block",
-            "position": {
-              "x": 360,
-              "y": 250,
-              "w": 360,
-              "h": 250
-            }
-          },
-          {
-            "item": "viz_K16UIR9V",
-            "type": "block",
-            "position": {
-              "x": 720,
-              "y": 250,
-              "w": 360,
-              "h": 250
-            }
-          },
-          {
-            "item": "viz_K13PFKLk",
-            "type": "block",
-            "position": {
-              "x": 1080,
-              "y": 250,
-              "w": 360,
-              "h": 250
-            }
-          },
-          {
-            "item": "viz_1As9IHHm",
-            "type": "block",
-            "position": {
-              "x": 0,
-              "y": 500,
-              "w": 1440,
-              "h": 250
-            }
-          },
-          {
-            "item": "viz_GzpCBpbu",
-            "type": "block",
-            "position": {
-              "x": 0,
-              "y": 750,
-              "w": 1440,
-              "h": 250
-            }
-          },
-          {
-            "item": "viz_hjEkvWs2",
-            "type": "block",
-            "position": {
-              "x": 0,
-              "y": 1000,
-              "w": 360,
-              "h": 250
-            }
-          },
-          {
-            "item": "viz_54vPhRXi",
-            "type": "block",
-            "position": {
-              "x": 360,
-              "y": 1000,
-              "w": 360,
-              "h": 250
-            }
-          },
-          {
-            "item": "viz_ZH7JGCC6",
-            "type": "block",
-            "position": {
-              "x": 720,
-              "y": 1000,
-              "w": 360,
-              "h": 250
-            }
-          },
-          {
-            "item": "viz_XE8V7avu",
-            "type": "block",
-            "position": {
-              "x": 1080,
-              "y": 1000,
-              "w": 360,
-              "h": 250
-            }
-          },
-          {
-            "item": "viz_LQb6dE4m",
-            "type": "block",
-            "position": {
-              "x": 0,
-              "y": 1250,
-              "w": 1440,
-              "h": 250
-            }
-          },
-          {
-            "item": "viz_1T0SgQ0G",
-            "type": "block",
-            "position": {
-              "x": 0,
-              "y": 1500,
-              "w": 1440,
-              "h": 250
-            }
-          }
+    "dataSources": {
+        "ds_66J9cr2N": {
+            "name": "Total wallets created - Single value search",
+            "options": {
+                "query": "index=otel host=\"cryptowallet-84d755cfdb-qvb5x\" \"Created wallet\"\n| stats count as \"Total Wallets Created\"",
+                "queryParameters": {
+                    "earliest": "-1d@d",
+                    "latest": "@d",
+                    "sampleRatio": 1
+                }
+            },
+            "type": "ds.search"
+        },
+        "ds_738zvhR3": {
+            "name": "Total Deposits - Single value search",
+            "options": {
+                "query": "index=otel host=\"cryptowallet-84d755cfdb-qvb5x\" \n| where like(_raw, \"Deposited%\")\n| stats count as total_deposits",
+                "queryParameters": {
+                    "earliest": "-1d@d",
+                    "latest": "@d",
+                    "sampleRatio": 1
+                }
+            },
+            "type": "ds.search"
+        },
+        "ds_7wey6OK1": {
+            "name": "Total events - Single value search",
+            "options": {
+                "query": "index=otel host=\"cryptowallet-84d755cfdb-qvb5x\" \n| stats count AS \"Total Events\"",
+                "queryParameters": {
+                    "earliest": "-1d@d",
+                    "latest": "@d",
+                    "sampleRatio": 1
+                },
+                "refresh": "30s",
+                "refreshType": "delay"
+            },
+            "type": "ds.search"
+        },
+        "ds_8w1Qjcr8": {
+            "name": "Failed operations - Single value search",
+            "options": {
+                "query": "index=otel host=\"cryptowallet-84d755cfdb-qvb5x\" \"not found\"\n| stats count AS \"Failed Operations\"",
+                "queryParameters": {
+                    "earliest": "-1d@d",
+                    "latest": "@d",
+                    "sampleRatio": 1
+                }
+            },
+            "type": "ds.search"
+        },
+        "ds_CGEBw9x3": {
+            "name": "Number of withdrawals per currency - Column chart search",
+            "options": {
+                "query": "index=otel host=\"cryptowallet-84d755cfdb-qvb5x\"  \"Withdrew\"\n| rex field=_raw \"(?<currency>BTC|GBP|USD)\"\n| stats count by currency",
+                "queryParameters": {
+                    "earliest": "-1d@d",
+                    "latest": "@d",
+                    "sampleRatio": 1
+                },
+                "refresh": "30s",
+                "refreshType": "delay"
+            },
+            "type": "ds.search"
+        },
+        "ds_ErzUBhKL": {
+            "name": "Outgoing transfers per currency - Column chart search",
+            "options": {
+                "query": "index=otel host=\"cryptowallet-84d755cfdb-qvb5x\"  \"Transferred\"\n| rex field=_raw \"(?<currency>BTC|GBP|USD)\"\n| stats count by currency",
+                "queryParameters": {
+                    "earliest": "-1d@d",
+                    "latest": "@d",
+                    "sampleRatio": 1
+                }
+            },
+            "type": "ds.search"
+        },
+        "ds_NyeArIe8": {
+            "name": "Total Withdrawals - Single value search",
+            "options": {
+                "query": "index=otel host=\"cryptowallet-84d755cfdb-qvb5x\" \n| where like(_raw, \"Withdrew%\")\n| stats count as total_withdrawals",
+                "queryParameters": {
+                    "earliest": "-1d@d",
+                    "latest": "@d",
+                    "sampleRatio": 1
+                }
+            },
+            "type": "ds.search"
+        },
+        "ds_QOYDvPNn": {
+            "name": "Total Errors - Single value search",
+            "options": {
+                "query": "index=otel host=\"cryptowallet-84d755cfdb-qvb5x\"  \"not found\"\n| stats count as \"Total Errors\"",
+                "queryParameters": {
+                    "earliest": "-1d@d",
+                    "latest": "@d",
+                    "sampleRatio": 1
+                }
+            },
+            "type": "ds.search"
+        },
+        "ds_TFtiWevO": {
+            "name": "Wallet Transfer Source Map - Cluster map search",
+            "options": {
+                "query": "index=otel host=\"cryptowallet-84d755cfdb-qvb5x\" \"Transferred\"\n| rex field=_raw \"Transferred\\s+(?<amount>\\d+)\\s+(?<currency>[A-Z]{3})\\s+from wallet\\s+(?<from_wallet>[0-9a-f-]+)\\s+at location\\s+(?<from_location>[^,]+),\\s+latitude\\s+(?<from_lat>[-\\d\\.]+),\\s+longitude\\s+(?<from_lon>[-\\d\\.]+)\\s+to\\s+(?<to_amount>\\d+)\\s+(?<to_currency>[A-Z]{3})\\s+in wallet\\s+(?<to_wallet>[0-9a-f-]+)\\s+at location\\s+(?<to_location>[^,]+),\\s+latitude\\s+(?<to_lat>[-\\d\\.]+),\\s+longitude\\s+(?<to_lon>[-\\d\\.]+)\"\n| eval amount=tonumber(amount), to_amount=tonumber(to_amount)\n| geostats latfield=from_lat longfield=from_lon count by currency",
+                "queryParameters": {
+                    "earliest": "-1d@d",
+                    "latest": "@d",
+                    "sampleRatio": 1
+                }
+            },
+            "type": "ds.search"
+        },
+        "ds_gfq5Gkdj": {
+            "name": "Deposits _ Withdrawals summary - Table search",
+            "options": {
+                "query": "index=otel host=\"cryptowallet-84d755cfdb-qvb5x\"  (Deposited OR Withdrew)\n| rex field=_raw \"(?<action>Deposited|Withdrew)\\s+(?<amount>\\d+)\\s+(?<currency>[A-Z]{3})\\s+(?:to|from)\\s+wallet\\s+(?<wallet>[0-9a-f-]+)\\s+at location\\s+(?<location>[^,]+)\\s*,\\s*latitude\\s+(?<lat>[-\\d\\.]+),\\s*longitude\\s+(?<lon>[-\\d\\.]+)\"\n| eval amount=tonumber(amount)\n| stats count sum(amount) AS total_amount by action currency",
+                "queryParameters": {
+                    "earliest": "-1d@d",
+                    "latest": "@d",
+                    "sampleRatio": 1
+                }
+            },
+            "type": "ds.search"
+        },
+        "ds_hVbAszmD": {
+            "name": "Number of deposits per currency - Column chart search",
+            "options": {
+                "query": "index=otel host=\"cryptowallet-84d755cfdb-qvb5x\"  \"Deposited\"\n| rex field=_raw \"(?<currency>BTC|GBP|USD)\"\n| stats count by currency",
+                "queryParameters": {
+                    "earliest": "-1d@d",
+                    "latest": "@d",
+                    "sampleRatio": 1
+                }
+            },
+            "type": "ds.search"
+        },
+        "ds_jyMcnZDv": {
+            "name": "Total Transfers - Single value search",
+            "options": {
+                "query": "index=otel host=\"cryptowallet-84d755cfdb-qvb5x\" \"Transferred\"\n| stats count AS \"Total Transfers\"",
+                "queryParameters": {
+                    "earliest": "-1d@d",
+                    "latest": "@d",
+                    "sampleRatio": 1
+                }
+            },
+            "type": "ds.search"
+        },
+        "ds_kFX1woO8": {
+            "name": "event rate by hour - Line chart search",
+            "options": {
+                "query": "index=otel host=\"cryptowallet-84d755cfdb-qvb5x\" \n| timechart span=1h count AS \"Event Count\"",
+                "queryParameters": {
+                    "earliest": "-1d@d",
+                    "latest": "@d",
+                    "sampleRatio": 1
+                }
+            },
+            "type": "ds.search"
+        },
+        "ds_m9tzocR9": {
+            "name": "Number of transactions by currency - Column chart search",
+            "options": {
+                "query": "index=otel host=\"cryptowallet-84d755cfdb-qvb5x\" \n\"Deposited\" OR \"Withdrew\" OR \"Transferred\"\n| rex field=_raw \"(?<currency>BTC|GBP|USD)\"\n| stats count by currency",
+                "queryParameters": {
+                    "earliest": "-1d@d",
+                    "latest": "@d",
+                    "sampleRatio": 1
+                }
+            },
+            "type": "ds.search"
+        },
+        "ds_mVdu4ThQ": {
+            "name": "Error _ - Single value search",
+            "options": {
+                "query": "index=otel host=\"cryptowallet-84d755cfdb-qvb5x\" \n| eval is_error=if(like(_raw,\"%not found%\"),1,0)\n| stats count as total_events sum(is_error) as total_errors\n| eval error_percentage = round((total_errors/total_events)*100,2)\n| fields error_percentage",
+                "queryParameters": {
+                    "earliest": "-1d@d",
+                    "latest": "@d",
+                    "sampleRatio": 1
+                }
+            },
+            "type": "ds.search"
+        },
+        "ds_t6Wu0hJa": {
+            "name": "Total Transactions - Single value search",
+            "options": {
+                "query": "index=otel host=\"cryptowallet-84d755cfdb-qvb5x\" \"Deposited\" OR \"Withdrew\" OR \"Transferred\"\n| stats count as \"Total Transactions\"",
+                "queryParameters": {
+                    "earliest": "-1d@d",
+                    "latest": "@d",
+                    "sampleRatio": 1
+                }
+            },
+            "type": "ds.search"
+        },
+        "ds_tmKQqMNi": {
+            "name": "Details for _details_ - Table search",
+            "options": {
+                "query": "index=otel host=\"cryptowallet-84d755cfdb-qvb5x\"\n            | eval category=case(\n            match(_raw,\"Created wallet\"),\"wallets_created\",\n            match(_raw,\"Deleted wallet\"),\"wallets_deleted\",\n            match(_raw,\"Deposited\"),\"deposits\",\n            match(_raw,\"Withdrew\"),\"withdrawals\",\n            match(_raw,\"Transferred\"),\"transfers\",\n            like(_raw,\"%not found%\"),\"errors\",\n            true(),\"events\")\n            | search category=$details$\n            | table _time _raw",
+                "queryParameters": {
+                    "earliest": "-1d@d",
+                    "latest": "@d",
+                    "sampleRatio": 1
+                }
+            },
+            "type": "ds.search"
+        },
+        "ds_tsEKvZJ5": {
+            "name": "Total Wallets Deleted - Single value search",
+            "options": {
+                "query": "index=otel host=\"cryptowallet-84d755cfdb-qvb5x\"  \"Deleted wallet\"\n| stats count as \"Total Wallets Deleted\"",
+                "queryParameters": {
+                    "earliest": "-1d@d",
+                    "latest": "@d",
+                    "sampleRatio": 1
+                }
+            },
+            "type": "ds.search"
+        }
+    },
+    "layout": {
+        "globalInputs": [
+            "input_rF7T4Q8h"
         ],
+        "layoutDefinitions": {
+            "layout_1": {
+                "options": {
+                    "height": 1750,
+                    "width": 1440
+                },
+                "structure": [
+                    {
+                        "item": "viz_KMZeHMwg",
+                        "position": {
+                            "h": 250,
+                            "w": 240,
+                            "x": 0,
+                            "y": 0
+                        },
+                        "type": "block"
+                    },
+                    {
+                        "item": "viz_gVi4Ml0F",
+                        "position": {
+                            "h": 250,
+                            "w": 240,
+                            "x": 240,
+                            "y": 0
+                        },
+                        "type": "block"
+                    },
+                    {
+                        "item": "viz_qIFGbnSv",
+                        "position": {
+                            "h": 250,
+                            "w": 240,
+                            "x": 480,
+                            "y": 0
+                        },
+                        "type": "block"
+                    },
+                    {
+                        "item": "viz_weryh2Ve",
+                        "position": {
+                            "h": 250,
+                            "w": 240,
+                            "x": 720,
+                            "y": 0
+                        },
+                        "type": "block"
+                    },
+                    {
+                        "item": "viz_ng5D4CcM",
+                        "position": {
+                            "h": 250,
+                            "w": 240,
+                            "x": 960,
+                            "y": 0
+                        },
+                        "type": "block"
+                    },
+                    {
+                        "item": "viz_MF8P0IEt",
+                        "position": {
+                            "h": 250,
+                            "w": 240,
+                            "x": 1200,
+                            "y": 0
+                        },
+                        "type": "block"
+                    },
+                    {
+                        "item": "viz_y7ZtSWSx",
+                        "position": {
+                            "h": 250,
+                            "w": 360,
+                            "x": 0,
+                            "y": 250
+                        },
+                        "type": "block"
+                    },
+                    {
+                        "item": "viz_MCuFKqsy",
+                        "position": {
+                            "h": 250,
+                            "w": 360,
+                            "x": 360,
+                            "y": 250
+                        },
+                        "type": "block"
+                    },
+                    {
+                        "item": "viz_yIkgupLB",
+                        "position": {
+                            "h": 250,
+                            "w": 360,
+                            "x": 720,
+                            "y": 250
+                        },
+                        "type": "block"
+                    },
+                    {
+                        "item": "viz_X6VRN3Kt",
+                        "position": {
+                            "h": 250,
+                            "w": 360,
+                            "x": 1080,
+                            "y": 250
+                        },
+                        "type": "block"
+                    },
+                    {
+                        "item": "viz_ViFqNBhZ",
+                        "position": {
+                            "h": 250,
+                            "w": 1440,
+                            "x": 0,
+                            "y": 500
+                        },
+                        "type": "block"
+                    },
+                    {
+                        "item": "viz_Gydv37q6",
+                        "position": {
+                            "h": 250,
+                            "w": 1440,
+                            "x": 0,
+                            "y": 750
+                        },
+                        "type": "block"
+                    },
+                    {
+                        "item": "viz_mU7jITrX",
+                        "position": {
+                            "h": 250,
+                            "w": 360,
+                            "x": 0,
+                            "y": 1000
+                        },
+                        "type": "block"
+                    },
+                    {
+                        "item": "viz_VLv14b5r",
+                        "position": {
+                            "h": 250,
+                            "w": 360,
+                            "x": 360,
+                            "y": 1000
+                        },
+                        "type": "block"
+                    },
+                    {
+                        "item": "viz_1wVQYv6Z",
+                        "position": {
+                            "h": 250,
+                            "w": 360,
+                            "x": 720,
+                            "y": 1000
+                        },
+                        "type": "block"
+                    },
+                    {
+                        "item": "viz_J2sAuTkU",
+                        "position": {
+                            "h": 250,
+                            "w": 360,
+                            "x": 1080,
+                            "y": 1000
+                        },
+                        "type": "block"
+                    },
+                    {
+                        "item": "viz_uKGmhTgx",
+                        "position": {
+                            "h": 250,
+                            "w": 1440,
+                            "x": 0,
+                            "y": 1250
+                        },
+                        "type": "block"
+                    },
+                    {
+                        "item": "viz_sFqxU2qF",
+                        "position": {
+                            "h": 250,
+                            "w": 1440,
+                            "x": 0,
+                            "y": 1500
+                        },
+                        "type": "block"
+                    }
+                ],
+                "type": "grid"
+            }
+        },
         "options": {
-          "width": 1440,
-          "height": 1750
+            "submitButton": false
+        },
+        "tabs": {
+            "items": [
+                {
+                    "label": "New tab",
+                    "layoutId": "layout_1"
+                }
+            ]
         }
-      }
+    },
+    "applicationProperties": {
+        "hideEdit": false,
+        "hideExport": false
     }
-  },
-  "description": "",
-  "title": "Crypto wallet web app Dashboard Copy",
-  "applicationProperties": {
-    "hideEdit": false,
-    "hideExport": false
-  }
 }
