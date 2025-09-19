@@ -1,0 +1,190 @@
+<form version="1.1" theme="light">
+  <label>Wallet Details Dashboard</label>
+  <fieldset submitButton="false">
+    <input type="time" token="time">
+      <label>Time Range</label>
+      <default>
+        <earliest>-24h@h</earliest>
+        <latest>now</latest>
+      </default>
+    </input>
+    <input type="dropdown" token="ID">
+      <label>Wallet ID</label>
+      <fieldForLabel>wallet_id</fieldForLabel>
+      <fieldForValue>wallet_id</fieldForValue>
+      <search>
+        <query>index=otel host="cryptowallet-84d755cfdb-qvb5x" "Created wallet"
+| rex field=_raw "wallet (?&lt;wallet_id&gt;[a-f0-9\-]{36})"
+| stats count by wallet_id
+| fields wallet_id</query>
+        <earliest>0</earliest>
+        <latest></latest>
+      </search>
+      <default>054cbec0-1b24-462e-9cd4-cec04de4cc25</default>
+      <initialValue>054cbec0-1b24-462e-9cd4-cec04de4cc25</initialValue>
+    </input>
+  </fieldset>
+  <row>
+    <panel>
+      <single>
+        <title>Total Transactions</title>
+        <search>
+          <query>index=otel host="cryptowallet-84d755cfdb-qvb5x"
+| rex "wallet (?&lt;wallet_id_extracted&gt;[a-f0-9\-]{36})"
+| where wallet_id_extracted="$ID$" OR "$ID$"=""
+| eval is_transaction=if(like(_raw,"Deposited%") OR like(_raw,"Withdrew%") OR like(_raw,"Transferred%"), 1, 0)
+| stats sum(is_transaction) as total_transactions</query>
+          <earliest>$time.earliest$</earliest>
+          <latest>$time.latest$</latest>
+        </search>
+        <option name="drilldown">all</option>
+        <option name="refresh.display">progressbar</option>
+        <drilldown>
+          <set token="details">transactions</set>
+        </drilldown>
+      </single>
+    </panel>
+    <panel>
+      <single>
+        <title>Deposits</title>
+        <search>
+          <query>index=otel host="cryptowallet-84d755cfdb-qvb5x"
+| search "Deposited"
+| rex "wallet (?&lt;wallet_id_extracted&gt;[a-f0-9\-]{36})"
+| where wallet_id_extracted="$ID$" OR "$ID$"=""
+| stats count as total_deposits</query>
+          <earliest>$time.earliest$</earliest>
+          <latest>$time.latest$</latest>
+        </search>
+        <option name="drilldown">all</option>
+        <option name="refresh.display">progressbar</option>
+        <drilldown>
+          <set token="details">Deposits</set>
+        </drilldown>
+      </single>
+    </panel>
+    <panel>
+      <single>
+        <title>Withdrawals</title>
+        <search>
+          <query>index=otel host="cryptowallet-84d755cfdb-qvb5x"
+| search "Withdrew"
+| rex "wallet (?&lt;wallet_id_extracted&gt;[a-f0-9\-]{36})"
+| where wallet_id_extracted="$ID$" OR "$ID$"=""
+| stats count as total_withdrawals</query>
+          <earliest>$time.earliest$</earliest>
+          <latest>$time.latest$</latest>
+        </search>
+        <option name="drilldown">all</option>
+        <option name="refresh.display">progressbar</option>
+        <drilldown>
+          <set token="details">Withdrawals</set>
+        </drilldown>
+      </single>
+    </panel>
+    <panel>
+      <single>
+        <title>Transfers</title>
+        <search>
+          <query>index=otel host="cryptowallet-84d755cfdb-qvb5x"
+| search "Transferred"
+| rex "wallet (?&lt;wallet_id_extracted&gt;[a-f0-9\-]{36})"
+| where wallet_id_extracted="$ID$" OR "$ID$"=""
+| stats count as total_transfers</query>
+          <earliest>$time.earliest$</earliest>
+          <latest>$time.latest$</latest>
+        </search>
+        <option name="drilldown">all</option>
+        <option name="refresh.display">progressbar</option>
+        <drilldown>
+          <set token="details">Transfers</set>
+        </drilldown>
+      </single>
+    </panel>
+    <panel>
+      <single>
+        <title>Errors</title>
+        <search>
+          <query>index="otel" host="cryptowallet-84d755cfdb-qvb5x" wallet
+| where like(_raw, "%not found%")
+| rex "Wallet with ID (?&lt;wallet_id_extracted&gt;[a-f0-9\-]{36})"
+| where wallet_id_extracted="$ID$" OR "$ID$"=""
+| stats count as total_errors</query>
+          <earliest>$time.earliest$</earliest>
+          <latest>$time.latest$</latest>
+        </search>
+        <option name="drilldown">all</option>
+        <option name="refresh.display">progressbar</option>
+        <drilldown>
+          <set token="details">Errors</set>
+        </drilldown>
+      </single>
+    </panel>
+  </row>
+  <row>
+    <panel>
+      <table>
+        <title>details</title>
+        <search>
+          <query>index=otel host="cryptowallet-84d755cfdb-qvb5x"
+| rex "wallet (?&lt;wallet_id_extracted&gt;[a-f0-9\-]{36})"
+| eval category=case(
+    match(_raw,"Deposited"),"Deposits",
+    match(_raw,"Withdrew"),"Withdrawals",
+    match(_raw,"Transferred"),"Transfers",
+    match(_raw,"Wallet with ID.*not found"),"Errors"
+)
+| eval wallet_id_extracted=if(category="Errors",
+        mvindex(split(replace(_raw,"Wallet with ID ","")," "),0),
+        wallet_id_extracted
+)
+| eval error_type=if(category="Errors" AND match(_raw,"Wallet with ID.*not found"),
+        "Wallet Not Found",
+        null()
+)
+| where (wallet_id_extracted="$ID$" OR "$ID$"="") 
+  AND (
+        isnull("$details$") 
+        OR "$details$"="" 
+        OR ("$details$"="transactions" AND category IN ("Deposits","Withdrawals","Transfers")) 
+        OR category="$details$"
+      )
+| rex field=_raw "(?i)(Deposited|Withdrew|Transferred) (?&lt;amount&gt;\d+) (?&lt;currency&gt;\w+)"
+| rex field=_raw "from wallet (?&lt;from_wallet&gt;[a-f0-9\-]{36})"
+| rex field=_raw "to (?&lt;to_currency_amount&gt;\d+ \w+) in wallet (?&lt;to_wallet&gt;[a-f0-9\-]{36})"
+| rex field=_raw "location (?&lt;city&gt;[\w\s]+), latitude (?&lt;lat&gt;[\d\.]+), longitude (?&lt;lon&gt;[\d\.]+)"
+| table _time category wallet_id_extracted from_wallet to_wallet amount currency city lat lon error_type _raw
+| sort - _time</query>
+          <earliest>$time.earliest$</earliest>
+          <latest>$time.latest$</latest>
+        </search>
+        <option name="drilldown">none</option>
+        <option name="refresh.display">progressbar</option>
+      </table>
+    </panel>
+  </row>
+  <row>
+    <panel>
+      <chart>
+        <title>Transaction Types Breakdown</title>
+        <search>
+          <query>index=otel host="cryptowallet-84d755cfdb-qvb5x" "$ID$"
+| eval category=case(
+    match(_raw,"Deposited"), "Deposits",
+    match(_raw,"Withdrew"), "Withdrawals",
+    match(_raw,"Transferred"), "Transfers",
+    match(_raw,"not found"), "Errors",
+    true(), "Other"
+)
+| stats count by category</query>
+          <earliest>$time.earliest$</earliest>
+          <latest>$time.latest$</latest>
+        </search>
+        <option name="charting.axisTitleX.visibility">visible</option>
+        <option name="charting.axisTitleY.visibility">visible</option>
+        <option name="charting.chart">bar</option>
+        <option name="refresh.display">progressbar</option>
+      </chart>
+    </panel>
+  </row>
+</form>
