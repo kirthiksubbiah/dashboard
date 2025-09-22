@@ -1,0 +1,378 @@
+{
+    "title": "Crypto wallet web app Dashboard (LEVEL-2) Copy",
+    "description": "",
+    "inputs": {
+        "input_Bbe4L77g": {
+            "options": {
+                "defaultValue": "0,",
+                "token": "time"
+            },
+            "title": "TIME",
+            "type": "input.timerange"
+        },
+        "input_CD56QaSC": {
+            "options": {
+                "token": "details"
+            },
+            "title": "details",
+            "type": "input.text"
+        }
+    },
+    "defaults": {
+        "dataSources": {
+            "ds.search": {
+                "options": {
+                    "queryParameters": {}
+                }
+            }
+        },
+        "visualizations": {
+            "global": {
+                "showProgressBar": true
+            }
+        }
+    },
+    "visualizations": {
+        "viz_AQ2wUKaf": {
+            "dataSources": {
+                "primary": "ds_LZnhQnoL"
+            },
+            "eventHandlers": [
+                {
+                    "options": {
+                        "app": "search",
+                        "dashboard": "wallet_details",
+                        "newTab": true,
+                        "tokens": [
+                            {
+                                "token": "form.ID",
+                                "value": "click.value"
+                            }
+                        ]
+                    },
+                    "type": "drilldown.linkToDashboard"
+                }
+            ],
+            "options": {
+                "dataValuesDisplay": "off",
+                "legendDisplay": "right",
+                "legendTruncation": "ellipsisMiddle",
+                "showIndependentYRanges": false,
+                "showRoundedY2AxisLabels": false,
+                "showSplitSeries": false,
+                "showY2MajorGridLines": true,
+                "stackMode": "auto",
+                "xAxisTitleVisibility": "show",
+                "y2AxisAbbreviation": "auto",
+                "y2AxisTitleVisibility": "show",
+                "yAxisAbbreviation": "auto",
+                "yAxisScale": "linear",
+                "yAxisTitleVisibility": "show"
+            },
+            "showProgressBar": true,
+            "title": "Transfers per Wallet",
+            "type": "splunk.bar"
+        },
+        "viz_RhvBcf68": {
+            "dataSources": {
+                "primary": "ds_Izi5qDv4"
+            },
+            "eventHandlers": [
+                {
+                    "options": {
+                        "app": "search",
+                        "dashboard": "wallet_details",
+                        "newTab": true,
+                        "tokens": [
+                            {
+                                "token": "form.ID",
+                                "value": "click.value"
+                            }
+                        ]
+                    },
+                    "type": "drilldown.linkToDashboard"
+                }
+            ],
+            "options": {
+                "dataValuesDisplay": "off",
+                "legendDisplay": "right",
+                "legendTruncation": "ellipsisMiddle",
+                "showIndependentYRanges": false,
+                "showOverlayY2Axis": false,
+                "showRoundedY2AxisLabels": false,
+                "showSplitSeries": false,
+                "showY2MajorGridLines": true,
+                "stackMode": "auto",
+                "xAxisLabelRotation": 0,
+                "xAxisTitleVisibility": "show",
+                "y2AxisAbbreviation": "auto",
+                "y2AxisScale": "inherit",
+                "y2AxisTitleVisibility": "show",
+                "yAxisAbbreviation": "auto",
+                "yAxisScale": "linear",
+                "yAxisTitleVisibility": "show"
+            },
+            "showProgressBar": true,
+            "title": "Withdrawals per Wallet",
+            "type": "splunk.column"
+        },
+        "viz_je3IZxFd": {
+            "dataSources": {
+                "primary": "ds_JvFDaBQE"
+            },
+            "eventHandlers": [
+                {
+                    "options": {
+                        "app": "search",
+                        "dashboard": "wallet_details",
+                        "newTab": true,
+                        "tokens": [
+                            {
+                                "token": "form.ID",
+                                "value": "click.value"
+                            }
+                        ]
+                    },
+                    "type": "drilldown.linkToDashboard"
+                }
+            ],
+            "options": {
+                "dataValuesDisplay": "off",
+                "legendDisplay": "right",
+                "legendTruncation": "ellipsisMiddle",
+                "showIndependentYRanges": false,
+                "showRoundedY2AxisLabels": false,
+                "showSplitSeries": false,
+                "showY2MajorGridLines": true,
+                "stackMode": "auto",
+                "xAxisTitleVisibility": "show",
+                "y2AxisAbbreviation": "auto",
+                "y2AxisTitleVisibility": "show",
+                "yAxisAbbreviation": "auto",
+                "yAxisScale": "linear",
+                "yAxisTitleVisibility": "show"
+            },
+            "showProgressBar": true,
+            "title": "Deposits per Wallet",
+            "type": "splunk.bar"
+        },
+        "viz_lJgoEIFQ": {
+            "dataSources": {
+                "primary": "ds_5cu1ZAHx"
+            },
+            "options": {
+                "drilldown": "none",
+                "showInternalFields": false
+            },
+            "showProgressBar": true,
+            "title": "Deposits / Withdrawals summary",
+            "type": "splunk.table"
+        },
+        "viz_nfEcsYh3": {
+            "dataSources": {
+                "primary": "ds_7KhMihpr"
+            },
+            "eventHandlers": [
+                {
+                    "options": {
+                        "app": "search",
+                        "dashboard": "wallet_details",
+                        "newTab": true,
+                        "tokens": [
+                            {
+                                "token": "form.ID",
+                                "value": "click.value"
+                            }
+                        ]
+                    },
+                    "type": "drilldown.linkToDashboard"
+                }
+            ],
+            "options": {
+                "legendTruncation": "ellipsisMiddle",
+                "showRoundedY2AxisLabels": false,
+                "showY2MajorGridLines": true,
+                "y2AxisAbbreviation": "off",
+                "yAxisAbbreviation": "off"
+            },
+            "showProgressBar": true,
+            "title": "transactions per wallet",
+            "type": "splunk.column"
+        },
+        "viz_xrwWLWmu": {
+            "dataSources": {
+                "primary": "ds_XQRgPnW7"
+            },
+            "options": {
+                "drilldown": "none",
+                "showInternalFields": false
+            },
+            "title": "Details for $details$",
+            "type": "splunk.table"
+        }
+    },
+    "dataSources": {
+        "ds_5cu1ZAHx": {
+            "name": "Deposits _ Withdrawals summary search",
+            "options": {
+                "query": "index=otel host=cryptowallet-*  (Deposited OR Withdrew)\n| rex field=_raw \"(?<action>Deposited|Withdrew)\\s+(?<amount>\\d+)\\s+(?<currency>[A-Z]{3})\\s+(?:to|from)\\s+wallet\\s+(?<wallet>[0-9a-f-]+)\\s+at location\\s+(?<location>[^,]+)\\s*,\\s*latitude\\s+(?<lat>[-\\d\\.]+),\\s*longitude\\s+(?<lon>[-\\d\\.]+)\"\n| eval amount=tonumber(amount)\n| stats count sum(amount) AS total_amount by action currency",
+                "queryParameters": {
+                    "earliest": "$time.earliest$",
+                    "latest": "$time.latest$"
+                }
+            },
+            "type": "ds.search"
+        },
+        "ds_7KhMihpr": {
+            "name": "transactions per wallet - Column chart search",
+            "options": {
+                "query": "index=\"otel\" host=cryptowallet-*\n| eval is_transaction=if(match(_raw,\"Deposited\") OR match(_raw,\"Withdrew\") OR match(_raw,\"Transferred\"), 1, 0)\n| where is_transaction=1\n| rex field=_raw max_match=2 \"wallet\\s(?<wallet_id>[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12})\"\n| mvexpand wallet_id\n| stats count as transactions by wallet_id\n| sort -transactions",
+                "queryParameters": {
+                    "earliest": "$time.earliest$",
+                    "latest": "$time.latest$",
+                    "sampleRatio": 1
+                }
+            },
+            "type": "ds.search"
+        },
+        "ds_Izi5qDv4": {
+            "name": "Withdrawals per Wallet - Column chart search",
+            "options": {
+                "query": "index=\"otel\" host=cryptowallet-*\n| regex _raw=\"Withdrew\"\n| rex \"wallet\\s(?<wallet_id>[a-f0-9\\-]{36})\"\n| stats count as withdrawals by wallet_id\n| sort -withdrawals",
+                "queryParameters": {
+                    "earliest": "$time.earliest$",
+                    "latest": "$time.latest$",
+                    "sampleRatio": 1
+                }
+            },
+            "type": "ds.search"
+        },
+        "ds_JvFDaBQE": {
+            "name": "Deposits per Wallet - Bar chart search",
+            "options": {
+                "query": "index=\"otel\" host=cryptowallet-*\n| regex _raw=\"Deposited\"\n| rex \"wallet\\s(?<wallet_id>[a-f0-9\\-]{36})\"\n| stats count as deposits by wallet_id\n| sort -deposits",
+                "queryParameters": {
+                    "earliest": "$time.earliest$",
+                    "latest": "$time.latest$",
+                    "sampleRatio": 1
+                }
+            },
+            "type": "ds.search"
+        },
+        "ds_LZnhQnoL": {
+            "name": "Transfers per Wallet - Bar chart search",
+            "options": {
+                "query": "index=\"otel\" host=cryptowallet-*\n| where like(_raw, \"Transferred%\")\n| rex \"from wallet\\s(?<wallet_from>[a-f0-9\\-]{36})\"\n| rex \"to wallet\\s(?<wallet_to>[a-f0-9\\-]{36})\"\n| eval wallet_id=mvappend(wallet_from, wallet_to)\n| mvexpand wallet_id\n| stats count as transfers by wallet_id\n| sort -transfers",
+                "queryParameters": {
+                    "earliest": "$time.earliest$",
+                    "latest": "$time.latest$",
+                    "sampleRatio": 1
+                }
+            },
+            "type": "ds.search"
+        },
+        "ds_XQRgPnW7": {
+            "name": "Details for _details_ search",
+            "options": {
+                "query": "index=otel host=cryptowallet-*\n| eval category=case(\n    match(_raw,\"Created wallet\"),\"wallets_created\",\n    match(_raw,\"Deleted wallet\"),\"wallets_deleted\",\n    match(_raw,\"Deposited\"),\"deposits\",\n    match(_raw,\"Withdrew\"),\"withdrawals\",\n    match(_raw,\"Transferred\"),\"transfers\",\n    like(_raw,\"%not found%\"),\"errors\",\n    true(),\"events\")\n| eval selected=\"$details$\"\n| where isnull(selected) \n    OR selected=\"all\" \n    OR (selected=\"transactions\" AND category IN (\"deposits\",\"withdrawals\",\"transfers\")) \n    OR category=selected\n| table _time category _raw\n| sort - _time",
+                "queryParameters": {
+                    "earliest": "$time.earliest$",
+                    "latest": "$time.latest$"
+                }
+            },
+            "type": "ds.search"
+        }
+    },
+    "layout": {
+        "globalInputs": [
+            "input_Bbe4L77g",
+            "input_CD56QaSC"
+        ],
+        "layoutDefinitions": {
+            "layout_1": {
+                "options": {
+                    "height": 750,
+                    "width": 1440
+                },
+                "structure": [
+                    {
+                        "item": "viz_je3IZxFd",
+                        "position": {
+                            "h": 250,
+                            "w": 360,
+                            "x": 0,
+                            "y": 0
+                        },
+                        "type": "block"
+                    },
+                    {
+                        "item": "viz_RhvBcf68",
+                        "position": {
+                            "h": 250,
+                            "w": 360,
+                            "x": 360,
+                            "y": 0
+                        },
+                        "type": "block"
+                    },
+                    {
+                        "item": "viz_AQ2wUKaf",
+                        "position": {
+                            "h": 250,
+                            "w": 360,
+                            "x": 720,
+                            "y": 0
+                        },
+                        "type": "block"
+                    },
+                    {
+                        "item": "viz_nfEcsYh3",
+                        "position": {
+                            "h": 250,
+                            "w": 360,
+                            "x": 1080,
+                            "y": 0
+                        },
+                        "type": "block"
+                    },
+                    {
+                        "item": "viz_xrwWLWmu",
+                        "position": {
+                            "h": 250,
+                            "w": 1440,
+                            "x": 0,
+                            "y": 250
+                        },
+                        "type": "block"
+                    },
+                    {
+                        "item": "viz_lJgoEIFQ",
+                        "position": {
+                            "h": 250,
+                            "w": 1440,
+                            "x": 0,
+                            "y": 500
+                        },
+                        "type": "block"
+                    }
+                ],
+                "type": "grid"
+            }
+        },
+        "options": {
+            "submitButton": false
+        },
+        "tabs": {
+            "items": [
+                {
+                    "label": "New tab",
+                    "layoutId": "layout_1"
+                }
+            ]
+        }
+    },
+    "applicationProperties": {
+        "hideEdit": false,
+        "hideExport": false
+    }
+}
