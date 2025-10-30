@@ -1,0 +1,409 @@
+{
+  "name": "OTEL  Dashboard - level 1",
+  "description": "SRE Observability Dashboard for OTEL microservices — Golden Signals, SLOs, Error Budget, Trace insights.",
+  "permissions": "PUBLIC_READ_WRITE",
+  "pages": [
+    {
+      "guid": "NzI5MTE5M3xWSVp8REFTSEJPQVJEfDQ0ODQ5MzA4",
+      "name": "SLO page",
+      "description": null,
+      "widgets": [
+        {
+          "id": "498569457",
+          "title": "Error SLO Compliance (%)",
+          "layout": {
+            "column": 1,
+            "row": 1,
+            "width": 4,
+            "height": 3
+          },
+          "linkedEntityGuids": [],
+          "visualization": {
+            "id": "viz.billboard"
+          },
+          "rawConfiguration": {
+            "facet": {
+              "showOtherSeries": false
+            },
+            "nrqlQueries": [
+              {
+                "accountIds": [
+                  7291193
+                ],
+                "query": "FROM Span \r\nSELECT 100 - percentage(count(*), WHERE error = true) AS 'Error SLO Compliance (%)'\r\n"
+              }
+            ],
+            "platformOptions": {
+              "ignoreTimeRange": false
+            }
+          }
+        },
+        {
+          "id": "498569458",
+          "title": "Latency (95th %)",
+          "layout": {
+            "column": 5,
+            "row": 1,
+            "width": 4,
+            "height": 3
+          },
+          "linkedEntityGuids": null,
+          "visualization": {
+            "id": "viz.billboard"
+          },
+          "rawConfiguration": {
+            "nrqlQueries": [
+              {
+                "accountIds": [
+                  7291193
+                ],
+                "query": "FROM Span SELECT percentile(duration.ms,95) AS 'P95 Latency (ms)' WHERE service.name IN ({{service}})"
+              }
+            ]
+          }
+        },
+        {
+          "id": "498569460",
+          "title": "Request Rate (Req/s)",
+          "layout": {
+            "column": 9,
+            "row": 1,
+            "width": 4,
+            "height": 3
+          },
+          "linkedEntityGuids": [],
+          "visualization": {
+            "id": "viz.billboard"
+          },
+          "rawConfiguration": {
+            "facet": {
+              "showOtherSeries": false
+            },
+            "nrqlQueries": [
+              {
+                "accountIds": [
+                  7291193
+                ],
+                "query": "FROM Span \r\nSELECT rate(count(*), 1 second) AS 'Requests per Second'\r\n"
+              }
+            ],
+            "platformOptions": {
+              "ignoreTimeRange": false
+            }
+          }
+        },
+        {
+          "id": "498569459",
+          "title": "95th Percentile Response Time (ms)",
+          "layout": {
+            "column": 1,
+            "row": 4,
+            "width": 6,
+            "height": 4
+          },
+          "linkedEntityGuids": [],
+          "visualization": {
+            "id": "viz.billboard"
+          },
+          "rawConfiguration": {
+            "facet": {
+              "showOtherSeries": false
+            },
+            "nrqlQueries": [
+              {
+                "accountIds": [
+                  7291193
+                ],
+                "query": "FROM Span \r\nSELECT percentile(duration.ms, 95) AS 'Response Time (ms) (95%)'\r\n"
+              }
+            ],
+            "platformOptions": {
+              "ignoreTimeRange": false
+            }
+          }
+        },
+        {
+          "id": "498584140",
+          "title": "Trace Latency Distribution (ms)",
+          "layout": {
+            "column": 7,
+            "row": 4,
+            "width": 6,
+            "height": 4
+          },
+          "linkedEntityGuids": null,
+          "visualization": {
+            "id": "viz.histogram"
+          },
+          "rawConfiguration": {
+            "nrqlQueries": [
+              {
+                "accountIds": [
+                  7291193
+                ],
+                "query": "FROM Span SELECT histogram(duration.ms, width:50, buckets:20) WHERE service.name IN ({{service}})"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "guid": "NzI5MTE5M3xWSVp8REFTSEJPQVJEfDQ0ODQ5MzA5",
+      "name": "Key Matrics",
+      "description": null,
+      "widgets": [
+        {
+          "id": "498583916",
+          "title": "Error count per service",
+          "layout": {
+            "column": 1,
+            "row": 1,
+            "width": 4,
+            "height": 3
+          },
+          "linkedEntityGuids": null,
+          "visualization": {
+            "id": "viz.line"
+          },
+          "rawConfiguration": {
+            "facet": {
+              "showOtherSeries": false
+            },
+            "legend": {
+              "enabled": true
+            },
+            "markers": {
+              "displayedTypes": {
+                "criticalViolations": false,
+                "deployments": true,
+                "relatedDeployments": true,
+                "warningViolations": false
+              }
+            },
+            "nrqlQueries": [
+              {
+                "accountIds": [
+                  7291193
+                ],
+                "query": "FROM Span\r\nSELECT count(*) AS 'Error Count'\r\nWHERE http.status_code >= 500 AND service.name IN ({{service}})\r\nFACET service.name\r\nTIMESERIES AUTO\r\n"
+              }
+            ],
+            "platformOptions": {
+              "ignoreTimeRange": false
+            },
+            "thresholds": {
+              "isLabelVisible": true
+            },
+            "yAxisLeft": {
+              "zero": true
+            },
+            "yAxisRight": {
+              "zero": true
+            }
+          }
+        },
+        {
+          "id": "498583982",
+          "title": "Error rate per service",
+          "layout": {
+            "column": 5,
+            "row": 1,
+            "width": 4,
+            "height": 3
+          },
+          "linkedEntityGuids": null,
+          "visualization": {
+            "id": "viz.line"
+          },
+          "rawConfiguration": {
+            "facet": {
+              "showOtherSeries": false
+            },
+            "legend": {
+              "enabled": true
+            },
+            "markers": {
+              "displayedTypes": {
+                "criticalViolations": false,
+                "deployments": true,
+                "relatedDeployments": true,
+                "warningViolations": false
+              }
+            },
+            "nrqlQueries": [
+              {
+                "accountIds": [
+                  7291193
+                ],
+                "query": "FROM Span\r\nSELECT \r\n  100 * filter(count(*), WHERE http.status_code >= 500) / count(*) AS 'Error Rate (%)'\r\nWHERE service.name IN ({{service}})\r\nTIMESERIES AUTO\r\n"
+              }
+            ],
+            "platformOptions": {
+              "ignoreTimeRange": false
+            },
+            "thresholds": {
+              "isLabelVisible": true
+            },
+            "yAxisLeft": {
+              "zero": true
+            },
+            "yAxisRight": {
+              "zero": true
+            }
+          }
+        },
+        {
+          "id": "498583985",
+          "title": "Error per trace",
+          "layout": {
+            "column": 9,
+            "row": 1,
+            "width": 4,
+            "height": 3
+          },
+          "linkedEntityGuids": null,
+          "visualization": {
+            "id": "viz.bar"
+          },
+          "rawConfiguration": {
+            "facet": {
+              "showOtherSeries": false
+            },
+            "nrqlQueries": [
+              {
+                "accountIds": [
+                  7291193
+                ],
+                "query": "FROM Span\r\nSELECT \r\n  filter(count(*), WHERE http.status_code >= 500) AS 'Error Spans',\r\n  count(*) AS 'Total Spans',\r\n  100 * filter(count(*), WHERE http.status_code >= 500) / count(*) AS 'Error Rate (%)'\r\nWHERE service.name IN ({{service}})\r\nFACET trace.id\r\nLIMIT 100\r\n"
+              }
+            ],
+            "platformOptions": {
+              "ignoreTimeRange": false
+            }
+          }
+        },
+        {
+          "id": "498583989",
+          "title": "Trace count per service",
+          "layout": {
+            "column": 1,
+            "row": 4,
+            "width": 4,
+            "height": 3
+          },
+          "linkedEntityGuids": null,
+          "visualization": {
+            "id": "viz.pie"
+          },
+          "rawConfiguration": {
+            "facet": {
+              "showOtherSeries": true
+            },
+            "legend": {
+              "enabled": true
+            },
+            "nrqlQueries": [
+              {
+                "accountIds": [
+                  7291193
+                ],
+                "query": "FROM Span\r\nSELECT uniqueCount(trace.id) AS 'Trace Count'\r\nWHERE service.name IN ({{service}})\r\nFACET service.name\r\n"
+              }
+            ],
+            "platformOptions": {
+              "ignoreTimeRange": false
+            }
+          }
+        },
+        {
+          "id": "498584016",
+          "title": "Duration in ms Per Service",
+          "layout": {
+            "column": 5,
+            "row": 4,
+            "width": 4,
+            "height": 3
+          },
+          "linkedEntityGuids": [],
+          "visualization": {
+            "id": "viz.billboard"
+          },
+          "rawConfiguration": {
+            "facet": {
+              "showOtherSeries": false
+            },
+            "nrqlQueries": [
+              {
+                "accountIds": [
+                  7291193
+                ],
+                "query": "FROM Span\r\nSELECT average(duration.ms) AS 'Avg Duration (ms)'\r\nWHERE service.name IN ({{service}})\r\n"
+              }
+            ],
+            "platformOptions": {
+              "ignoreTimeRange": false
+            }
+          }
+        },
+        {
+          "id": "498584020",
+          "title": "Duration Per Trace (ms) ",
+          "layout": {
+            "column": 9,
+            "row": 4,
+            "width": 4,
+            "height": 3
+          },
+          "linkedEntityGuids": null,
+          "visualization": {
+            "id": "viz.bar"
+          },
+          "rawConfiguration": {
+            "facet": {
+              "showOtherSeries": false
+            },
+            "nrqlQueries": [
+              {
+                "accountIds": [
+                  7291193
+                ],
+                "query": "FROM Span\r\nSELECT average(duration.ms) AS 'Avg Duration (ms)'\r\nWHERE service.name IN ({{service}})\r\nFACET trace.id\r\nLIMIT 100\r\n"
+              }
+            ],
+            "platformOptions": {
+              "ignoreTimeRange": false
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "variables": [
+    {
+      "name": "service",
+      "items": null,
+      "defaultValues": [
+        {
+          "value": {
+            "string": "frontend"
+          }
+        }
+      ],
+      "nrqlQuery": {
+        "accountIds": [
+          7291193
+        ],
+        "query": "FROM Span\nSELECT uniques(service.name)\nWHERE service.name IS NOT NULL\n"
+      },
+      "options": {
+        "ignoreTimeRange": false,
+        "excluded": false
+      },
+      "title": "Service",
+      "type": "NRQL",
+      "isMultiSelection": false,
+      "replacementStrategy": "STRING"
+    }
+  ]
+}
